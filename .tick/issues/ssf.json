@@ -1,0 +1,19 @@
+{
+  "id": "ssf",
+  "title": "Prove the diagrams rendered and read as one set",
+  "description": "## Objective\nThe build exit code proves nothing about Mermaid. Check the screen, then check consistency.\n\n## Spec Reference\n`.devmeta/projects/2026-08-13-diagram-verify/2026-08-13-diagram-verify-spec.md` — Sections 1-2\n\n## Implementation\n1. Run the dev server, load slides 4, 10 and 14. Each must show a diagram, not an error box.\n2. Grep the built bundle for each diagram's node labels.\n3. Check the set: consistent label style, no diagram over 8 nodes, no label over 4 words, deck terminology.\n\n## Tests\nRun: `cd slides \u0026\u0026 npm run build` then `cd slides \u0026\u0026 npm run slides`.",
+  "status": "open",
+  "priority": 2,
+  "type": "task",
+  "owner": "k.joanesarson@gmail.com",
+  "blocked_by": [
+    "pd4",
+    "ot8",
+    "oi4"
+  ],
+  "parent": "jaj",
+  "acceptance_criteria": "all three diagrams render; set is consistent",
+  "created_by": "k.joanesarson@gmail.com",
+  "created_at": "2026-08-13T19:34:23.654798Z",
+  "updated_at": "2026-08-13T19:34:35.856529Z"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "fbm",
+  "title": "01.2: Loop diagram",
+  "description": "## Scope\nslides/pages/03-commands.md — slide 10. Replace the DIAGRAM-PLACEHOLDER and its bulleted stand-in with a Mermaid diagram.\n\n## Spec\n`.devmeta/projects/2026-08-13-diagram-loop/2026-08-13-diagram-loop-spec.md`\n\n## Worker Instructions\n- Complete tasks in order\n- Read the spec and `context-log.md` in your feature directory before starting\n- Read `.devmeta/lessons-learned.md` before starting\n- Read the Mermaid contract and your diagram brief in `.devmeta/increments/increment-01-zmf/iterations/iteration-01.2/plan.md`\n- Append learnings to context-log.md when done",
+  "status": "open",
+  "priority": 2,
+  "type": "epic",
+  "owner": "k.joanesarson@gmail.com",
+  "parent": "7uy",
+  "created_by": "k.joanesarson@gmail.com",
+  "created_at": "2026-08-13T19:33:56.470796Z",
+  "updated_at": "2026-08-13T19:33:56.470796Z"
+}
