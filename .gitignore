@@ -7,3 +7,4 @@ slides/dist/
 .slidev-build/
 slides/.diagram-check/
 slides/.layout-check/
+slides/slides-export.pdf

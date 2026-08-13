@@ -119,3 +119,15 @@ Accumulated learnings. Each I&A cycle adds to this file.
 - **The click-state URL is `/<n>?clicks=<c>`.** The path form `/<n>/<c>` 404s in a built
   deck. And DOM queries must be scoped to `.slidev-page-N` — Slidev keeps neighbouring
   slides in the DOM, so a document-wide query measures the wrong slide.
+- **A review that changes nothing must show its work.** The balance pass made no edits.
+  That is indistinguishable from rubber-stamping unless the analysis is recorded —
+  measurements, the pattern that was already avoided, and the specific cut that was
+  offered and declined. Record all three.
+- **Exercise the paths no task covers, once, at the end.** `npm run export` was an
+  explicit exclusion so nothing tested it. Running it in the closing I&A cycle cost
+  nothing and confirmed the deck was sound on a path no criterion touched. Delete the
+  artifact afterwards — shipping it would quietly deliver excluded scope.
+- **Every exit criterion should be an exit code.** Three of this increment's criteria
+  became commands: `npm run slides`, `npm run diagrams`, `npm run layout`. The one that
+  did not — the concept checklist — is the one that regressed silently. That is not a
+  coincidence.

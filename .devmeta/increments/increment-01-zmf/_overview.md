@@ -1,6 +1,6 @@
 # Increment 01-zmf — Slidev deck explaining how DevMeta works
 
-**Status:** NOT STARTED
+**Status:** COMPLETE (2026-08-13)
 **Depends on:** None (first increment)
 **Goal:** A developer who uses Claude Code but has never seen DevMeta can watch a 15-minute talk from this deck and afterwards run their own increment without reading the README.
 

@@ -2,7 +2,7 @@
   "id": "2x1",
   "title": "Commit metadata to base branch",
   "description": "## Implementation\n1. `git add .tick/ .devmeta/`, verify only metadata staged, commit.",
-  "status": "open",
+  "status": "closed",
   "priority": 2,
   "type": "task",
   "owner": "k.joanesarson@gmail.com",
@@ -13,5 +13,7 @@
   "acceptance_criteria": "working tree clean",
   "created_by": "k.joanesarson@gmail.com",
   "created_at": "2026-08-13T19:53:08.81086Z",
-  "updated_at": "2026-08-13T19:53:08.81086Z"
+  "updated_at": "2026-08-13T20:11:01.273146Z",
+  "closed_at": "2026-08-13T20:11:01.273146Z",
+  "closed_reason": "metadata committed; working tree clean"
 }

@@ -2,6 +2,49 @@
 
 Narrative record of what was built, newest first.
 
+## 2026-08-13 — Increment 01-zmf COMPLETE
+
+Three iterations, seventeen features, eighty-one ticks, three merged PRs, three I&A
+cycles, one session. The deck exists: nineteen slides, `seriph`, three Mermaid diagrams,
+reveals on thirteen slides, every exit criterion evidenced rather than asserted.
+
+The through-line of the whole increment was **turning things you can only check by
+looking into things that exit non-zero.** "15-20 slides" became `npm run slides` in 01.1,
+because nobody could count slides by eye across six files. "Three diagrams render" became
+`npm run diagrams` in 01.2, after two workers proved that a green build says nothing about
+Mermaid and that both cheaper ways of checking silently lie. "No slide overflows at 16:9"
+became `npm run layout` in 01.3. Each of the three caught something real, and the one exit
+criterion that never became a command — the concept checklist — is the one that regressed
+silently when slide 4's bullets were deleted. That is not a coincidence, and it is the
+lesson most worth carrying out of this increment.
+
+The second through-line was **honest reporting from workers.** Across eleven subagents,
+the useful output was repeatedly not the artifact but the correction: *the verification
+method you specified cannot work*; *the rule you cited lives in a different file*;
+*deleting these bullets removed the only definition of a term on your checklist*; *this
+slide describes the model, which this iteration is deviating from*. None of them papered
+over a gap to close a task. Every one of those messages changed what happened next.
+
+The third was **restraint recorded as a decision.** Six of nineteen slides are
+deliberately static, a balance pass changed nothing, and the ticks were never pruned.
+Each of those is written down with its reasoning, because a non-action that is not
+recorded is indistinguishable from an oversight.
+
+Where the framework fought the machine: `/devmeta:run` wants one branch per feature, and
+parallel subagents cannot each check out a branch in one working tree. The increment ran
+on one branch per iteration with the coordinator committing, recorded the deviation in the
+iteration status rather than hiding it, and the I&A cycle ruled on it. `gh` defaulted to
+the upstream repo and had to be pinned to the fork on every call.
+
+What DevMeta got right: the I&A cycle is not ceremony. It found a false-pass fallback
+hiding in the verification tool written that same iteration, it predicted the shape of the
+next iteration accurately enough to stop a habit being applied blindly, and it added the
+one deliverable nobody had thought to ask for — a `CLAUDE.md` warning that this repo's
+`devmeta/` directory is the live command set for every project on the machine.
+
+The increment closes here. The next one is the user's call.
+
+
 ## 2026-08-13 — Increment 01-zmf, iteration 01.3, wave 3
 
 The last feature of the last iteration. Two jobs: build the overflow check, and judge the
