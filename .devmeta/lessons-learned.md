@@ -51,6 +51,17 @@ Accumulated learnings. Each I&A cycle adds to this file.
   headroom, and cost one extra wave for coherence.
 ## Iteration 01.2
 
+- **Smoke-test the verification technique, not just the tool.** `src:` imports and
+  Mermaid rendering were both proven before the plan leaned on them. The method for
+  *checking* a diagram was not, and it turned out to be impossible as written. If a spec
+  prescribes a check nobody has run before, run it once first.
+- **A check you have never seen fail is not evidence.** `npm run diagrams` was
+  negative-tested by breaking a diagram on purpose: the build still exited 0 and the
+  check exited 1. Do this to every new check, immediately, while breaking it is cheap.
+- **Fallbacks in a verification tool are a false-pass hazard.** The first version fell
+  back to "any `.mermaid` on the page" when the per-slide selector missed. Slidev keeps
+  every slide in the DOM, so a missing diagram could pass by reading a different slide's.
+  Verification code should fail loudly, never degrade gracefully.
 - **A green build is not a rendered diagram.** Mermaid parse errors render an error box
   on the slide and still exit 0. Worse, the two obvious checks both lie: grepping the
   bundle finds nothing because Slidev lz-string-compresses the source into a `code-lz`

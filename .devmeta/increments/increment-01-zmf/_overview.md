@@ -104,8 +104,18 @@ that worked in 01.1. `CLAUDE.md` is a fourth, independent file.
 
 **Verify on screen:**
 - `npm run build` exits 0 after the theme change
+- `npm run slides` still reports 19 and `npm run diagrams` still exits 0 — the diagram
+  check did not exist when this iteration was written (added in 01.2)
 - Clicking through the whole deck in `npm run dev` reveals content in the intended order
 - No slide overflows its frame at 16:9
+
+> **Reassessed 2026-08-13 (I&A cycle 01.2R).** Scope unchanged. Two things to carry in:
+> **(1)** This iteration is **not** cleanly parallel, unlike 01.1 and 01.2. A theme change
+> touches `slides.md` and affects every slide at once, and the layout pass has to judge
+> slides against each other. Expect a narrow first wave then per-file work — do not reach
+> for the wide fan-out that worked twice. **(2)** Slide 4 is heading-plus-diagram with no
+> bullets, and its diagram already fills the frame. A stepped build there must not
+> reintroduce the overflow that removed those bullets in the first place.
 
 ---
 

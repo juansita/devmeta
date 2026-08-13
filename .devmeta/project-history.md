@@ -2,6 +2,41 @@
 
 Narrative record of what was built, newest first.
 
+## 2026-08-13 — Iteration 01.2 complete (I&A cycle 01.2R)
+
+The diagrams landed, but the story of this iteration is that the way it planned to check
+them could not work.
+
+Three features were told to prove their diagram had rendered by grepping the built
+bundle for node labels. That is impossible: Slidev lz-string-compresses Mermaid source
+into a `code-lz` prop, so no label ever appears in `dist`. The obvious next move fails
+too — the rendered SVG lives inside the mermaid component's shadow root, where
+`querySelectorAll('svg')` returns nothing even on success. Two workers found both facts
+independently, and both stopped and said so rather than reporting a pass they could not
+justify. The spec was rewritten mid-iteration, and the method that works is now
+`npm run diagrams`.
+
+The I&A review then found a false pass hiding inside that very check. It fell back to
+"any `.mermaid` element on the page" when the per-slide selector missed — and because
+Slidev keeps every slide in the DOM, a missing diagram on slide 14 could have passed by
+quietly reading slide 4's. Verification code that degrades gracefully is worse than none.
+The fallback is gone, the slide list is now derived from source instead of hardcoded, and
+the fixed sleep is a proper wait. Then the check was broken on purpose: the build stayed
+green and the check went red, which is the only way to know a check works.
+
+The regression was smaller but the same shape. Slide 4's bullets had to go for layout —
+a three-deep nested graph needs the whole slide body — and they turned out to hold the
+deck's only definition of "task", which is on the increment's concept checklist. The
+worker that removed them noticed and flagged it rather than shipping quietly.
+
+Scope grew once and never shrank: `CLAUDE.md` was added by the previous I&A cycle and
+delivered here, 58 lines, every claim checked against the machine rather than recalled.
+
+What the framework got right this iteration was the reporting culture. Four workers, four
+honest "here is something wrong with what you told me" messages, none of them papering
+over a gap to close a task. What it got wrong was assuming a verification method needs no
+verification.
+
 ## 2026-08-13 — Increment 01-zmf, iteration 01.2, wave 1
 
 Four features in parallel: three Mermaid diagrams and the project `CLAUDE.md`.
