@@ -10,10 +10,10 @@
 
 | Feature | ID | Tasks | Status | Depends On |
 |---------|----|-------|--------|-----------|
-| Hierarchy diagram | `fnx` | 2 | Not started | — |
-| Loop diagram | `fbm` | 2 | Not started | — |
-| Tick tree diagram | `rsz` | 2 | Not started | — |
-| Project CLAUDE.md | `wwp` | 2 | Not started | — |
+| Hierarchy diagram | `fnx` | 2 | **Complete** | — |
+| Loop diagram | `fbm` | 2 | **Complete** | — |
+| Tick tree diagram | `rsz` | 2 | **Complete** | — |
+| Project CLAUDE.md | `wwp` | 2 | **Complete** | — |
 | Diagram verification | `jaj` | 3 | Not started | the three diagram features |
 
 ## Feature Independence Map
