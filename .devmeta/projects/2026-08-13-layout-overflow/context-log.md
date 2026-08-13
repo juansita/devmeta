@@ -13,6 +13,49 @@
 
 ---
 
+## Motion balance — reviewed, no changes made
+
+Three features animated independently. Measured across the whole deck:
+
+| | |
+|---|---|
+| Animated | 13 of 19 slides |
+| Static | 6 of 19 |
+| Longest static run | 2 slides (13-14) |
+| Longest animated run | 5 slides (15-19) |
+| Click steps | 66 total, 1 to 6 per slide |
+
+**Verified independently rather than trusted.** `npm run layout` reports a click-state
+count per slide as a side effect. Slides 4, 6, 10, 13 and 14 report exactly 1 state,
+which is what a deliberately static slide looks like from the outside. That matches the
+three motion context logs exactly — no worker over-reported what it did.
+
+**Every reveal uses the opacity-based default.** No `v-click.hide` anywhere. That matters
+beyond style: `.hide` removes the box, which would let a slide fit at click 0 and
+overflow later. The layout check covers every click state regardless, but the invariant is
+worth keeping.
+
+### Judgement: leave the motion as delivered
+
+The obvious temptation in a balance pass is to make a change to justify the pass. There
+is no change here worth making:
+
+- **The alternation is deliberate and it works.** Longest static run is 2, longest
+  animated run is 5. Statics fall on slides that lead with a diagram or a code block —
+  4, 10, 13, 14 — plus slide 6, which was left alone on purely editorial grounds.
+- **The one at-risk pattern was already avoided.** Slides 5, 7 and 8 all carry 6-step
+  builds, which would have been three near-identical animations in a row. The
+  motion-model worker broke that run by leaving slide 6 static. Undoing it would create
+  exactly the monotony it was avoiding.
+- **The close decelerates correctly.** Slide 17 has 4 steps, 18 has 6, 19 has 1. Ending
+  the deck on a single decisive reveal is right; the call to action should land, not
+  crawl.
+- **The commands worker offered slide 9 as the first cut** if whole-deck balance needed
+  one. It does not — slides 9 and 11 are separated by a static slide 10, so there is no
+  three-in-a-row run to break.
+
+Removing a reveal here would be cosmetic churn against three sets of recorded reasoning.
+
 ## The overflow check — built and negative-tested
 
 `slides/scripts/verify-layout.mjs`, behind `npm run layout`. Renders every slide at
