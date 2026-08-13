@@ -1,13 +1,18 @@
 ## The hierarchy
 
-- **Increment** — a major scope of work → many iterations.
-- **Iteration** — a deliverable slice → one merged PR.
-- **Feature** — one subagent's scope of work → several commits.
-- **Task** — one step inside a feature → one commit.
-- Each unit nests inside the one above it.
-- An I&A cycle runs after every iteration.
-
-<!-- DIAGRAM-PLACEHOLDER: nested boxes, increment containing iterations containing features containing tasks -->
+```mermaid
+graph TD
+  subgraph INC[Increment]
+    subgraph IT1[Iteration 1]
+      subgraph FA[Feature A]
+        T1[Task 1]
+        T2[Task 2]
+      end
+      FB[Feature B]
+    end
+    IT2[Iteration 2]
+  end
+```
 
 ---
 
