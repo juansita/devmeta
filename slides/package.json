@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "slidev slides.md --open",
     "build": "slidev build slides.md",
-    "export": "slidev export slides.md"
+    "export": "slidev export slides.md",
+    "slides": "node scripts/count-slides.mjs"
   },
   "devDependencies": {
     "@slidev/cli": "^52.19.0",

@@ -1,0 +1,57 @@
+{"ts":"2026-08-13T19:14:07.175239Z","tick":"7pv","action":"create","actor":"k.joanesarson@gmail.com","data":{"priority":1,"title":"Iteration 01.1: Content spine","type":"epic"}}
+{"ts":"2026-08-13T19:14:07.198026Z","tick":"f4a","action":"create","actor":"k.joanesarson@gmail.com","data":{"priority":1,"title":"Iteration 01.1R: Inspect \u0026 Adapt on Iteration 01.1","type":"epic"}}
+{"ts":"2026-08-13T19:14:07.216424Z","tick":"7uy","action":"create","actor":"k.joanesarson@gmail.com","data":{"priority":1,"title":"Iteration 01.2: Diagrams","type":"epic"}}
+{"ts":"2026-08-13T19:14:07.233925Z","tick":"nbm","action":"create","actor":"k.joanesarson@gmail.com","data":{"priority":1,"title":"Iteration 01.2R: Inspect \u0026 Adapt on Iteration 01.2","type":"epic"}}
+{"ts":"2026-08-13T19:14:07.251712Z","tick":"etg","action":"create","actor":"k.joanesarson@gmail.com","data":{"priority":1,"title":"Iteration 01.3: Theme and motion","type":"epic"}}
+{"ts":"2026-08-13T19:14:07.269887Z","tick":"j48","action":"create","actor":"k.joanesarson@gmail.com","data":{"priority":1,"title":"Iteration 01.3R: Inspect \u0026 Adapt on Iteration 01.3 + close increment","type":"epic"}}
+{"ts":"2026-08-13T19:18:30.336894Z","tick":"glx","action":"create","actor":"k.joanesarson@gmail.com","epic":"7pv","data":{"priority":1,"title":"01.1: Foundation — multi-file deck skeleton","type":"epic"}}
+{"ts":"2026-08-13T19:18:30.356673Z","tick":"jo0","action":"create","actor":"k.joanesarson@gmail.com","epic":"7pv","data":{"priority":2,"title":"01.1: Problem — opening section","type":"epic"}}
+{"ts":"2026-08-13T19:18:30.373856Z","tick":"vs2","action":"create","actor":"k.joanesarson@gmail.com","epic":"7pv","data":{"priority":2,"title":"01.1: Model — increment, iteration, feature, task, I\u0026A","type":"epic"}}
+{"ts":"2026-08-13T19:18:30.39145Z","tick":"nc1","action":"create","actor":"k.joanesarson@gmail.com","epic":"7pv","data":{"priority":2,"title":"01.1: Commands — what you run and what go runs","type":"epic"}}
+{"ts":"2026-08-13T19:18:30.409658Z","tick":"fbc","action":"create","actor":"k.joanesarson@gmail.com","epic":"7pv","data":{"priority":2,"title":"01.1: Example — one increment end to end","type":"epic"}}
+{"ts":"2026-08-13T19:18:30.427079Z","tick":"q19","action":"create","actor":"k.joanesarson@gmail.com","epic":"7pv","data":{"priority":2,"title":"01.1: Setup — disk layout, config, getting started","type":"epic"}}
+{"ts":"2026-08-13T19:18:30.444253Z","tick":"k5z","action":"create","actor":"k.joanesarson@gmail.com","epic":"7pv","data":{"priority":1,"title":"01.1: Coherence — make five files read as one deck","type":"epic"}}
+{"ts":"2026-08-13T19:18:49.851419Z","tick":"b7z","action":"create","actor":"k.joanesarson@gmail.com","epic":"glx","data":{"priority":2,"title":"Rewrite slides.md as a thin table of contents","type":"task"}}
+{"ts":"2026-08-13T19:18:49.879919Z","tick":"kik","action":"create","actor":"k.joanesarson@gmail.com","epic":"glx","data":{"priority":2,"title":"Write the five stub page files","type":"task"}}
+{"ts":"2026-08-13T19:18:49.902801Z","tick":"x4r","action":"create","actor":"k.joanesarson@gmail.com","epic":"glx","data":{"priority":2,"title":"Add the exact slide counter and npm script","type":"task"}}
+{"ts":"2026-08-13T19:18:49.925528Z","tick":"zwy","action":"create","actor":"k.joanesarson@gmail.com","epic":"glx","data":{"priority":2,"title":"Re-ground after Feature Foundation","type":"task"}}
+{"ts":"2026-08-13T19:19:08.833969Z","tick":"uhp","action":"create","actor":"k.joanesarson@gmail.com","epic":"jo0","data":{"priority":2,"title":"Write 01-problem.md — 2 slides","type":"task"}}
+{"ts":"2026-08-13T19:19:08.859214Z","tick":"u0b","action":"create","actor":"k.joanesarson@gmail.com","epic":"jo0","data":{"priority":2,"title":"Re-ground after Feature Problem","type":"task"}}
+{"ts":"2026-08-13T19:19:08.883723Z","tick":"jd4","action":"create","actor":"k.joanesarson@gmail.com","epic":"vs2","data":{"priority":2,"title":"Write 02-model.md — 5 slides","type":"task"}}
+{"ts":"2026-08-13T19:19:08.907478Z","tick":"p1g","action":"create","actor":"k.joanesarson@gmail.com","epic":"vs2","data":{"priority":2,"title":"Re-ground after Feature Model","type":"task"}}
+{"ts":"2026-08-13T19:19:08.930693Z","tick":"tyq","action":"create","actor":"k.joanesarson@gmail.com","epic":"nc1","data":{"priority":2,"title":"Write 03-commands.md — 4 slides","type":"task"}}
+{"ts":"2026-08-13T19:19:08.95238Z","tick":"74u","action":"create","actor":"k.joanesarson@gmail.com","epic":"nc1","data":{"priority":2,"title":"Re-ground after Feature Commands","type":"task"}}
+{"ts":"2026-08-13T19:19:08.974362Z","tick":"2zn","action":"create","actor":"k.joanesarson@gmail.com","epic":"fbc","data":{"priority":2,"title":"Write 04-example.md — 4 slides","type":"task"}}
+{"ts":"2026-08-13T19:19:08.996423Z","tick":"vtn","action":"create","actor":"k.joanesarson@gmail.com","epic":"fbc","data":{"priority":2,"title":"Re-ground after Feature Example","type":"task"}}
+{"ts":"2026-08-13T19:19:09.018953Z","tick":"z8y","action":"create","actor":"k.joanesarson@gmail.com","epic":"q19","data":{"priority":2,"title":"Write 05-setup.md — 3 slides","type":"task"}}
+{"ts":"2026-08-13T19:19:09.041531Z","tick":"6xo","action":"create","actor":"k.joanesarson@gmail.com","epic":"q19","data":{"priority":2,"title":"Re-ground after Feature Setup","type":"task"}}
+{"ts":"2026-08-13T19:19:30.47895Z","tick":"byi","action":"create","actor":"k.joanesarson@gmail.com","epic":"k5z","data":{"priority":2,"title":"Cold read and fix terminology drift","type":"task"}}
+{"ts":"2026-08-13T19:19:30.506568Z","tick":"kba","action":"create","actor":"k.joanesarson@gmail.com","epic":"k5z","data":{"priority":2,"title":"Verify mechanical criteria and concept checklist","type":"task"}}
+{"ts":"2026-08-13T19:19:30.52896Z","tick":"ser","action":"create","actor":"k.joanesarson@gmail.com","epic":"k5z","data":{"priority":2,"title":"Re-ground after Feature Coherence","type":"task"}}
+{"ts":"2026-08-13T19:19:30.551829Z","tick":"692","action":"create","actor":"k.joanesarson@gmail.com","epic":"7pv","data":{"priority":2,"title":"Create PR for iteration 01.1","type":"task"}}
+{"ts":"2026-08-13T19:19:30.574299Z","tick":"rrp","action":"create","actor":"k.joanesarson@gmail.com","epic":"7pv","data":{"priority":2,"title":"Merge PR and return to base branch","type":"task"}}
+{"ts":"2026-08-13T19:19:30.596107Z","tick":"yfj","action":"create","actor":"k.joanesarson@gmail.com","epic":"7pv","data":{"priority":2,"title":"Commit metadata to base branch","type":"task"}}
+{"ts":"2026-08-13T19:19:30.619933Z","tick":"u9d","action":"create","actor":"k.joanesarson@gmail.com","epic":"7pv","data":{"priority":2,"title":"Kick off I\u0026A Cycle 01.1R","type":"task"}}
+{"ts":"2026-08-13T19:19:42.056115Z","tick":"rrp","action":"block","actor":"k.joanesarson@gmail.com","epic":"7pv","data":{"blockers":["692"],"title":"Merge PR and return to base branch"}}
+{"ts":"2026-08-13T19:19:42.075889Z","tick":"yfj","action":"block","actor":"k.joanesarson@gmail.com","epic":"7pv","data":{"blockers":["rrp"],"title":"Commit metadata to base branch"}}
+{"ts":"2026-08-13T19:19:42.09288Z","tick":"u9d","action":"block","actor":"k.joanesarson@gmail.com","epic":"7pv","data":{"blockers":["yfj"],"title":"Kick off I\u0026A Cycle 01.1R"}}
+{"ts":"2026-08-13T19:19:42.108776Z","tick":"bwu","action":"create","actor":"k.joanesarson@gmail.com","epic":"f4a","data":{"priority":2,"title":"Run /devmeta:reflect 01.1","type":"task"}}
+{"ts":"2026-08-13T19:19:42.132111Z","tick":"u3p","action":"create","actor":"k.joanesarson@gmail.com","epic":"f4a","data":{"priority":2,"title":"Plan Iteration 01.2: read scope, create feature tick structure, begin first task","type":"task"}}
+{"ts":"2026-08-13T19:19:57.690698Z","tick":"kik","action":"block","actor":"k.joanesarson@gmail.com","epic":"glx","data":{"blockers":["b7z"],"title":"Write the five stub page files"}}
+{"ts":"2026-08-13T19:19:57.710303Z","tick":"x4r","action":"block","actor":"k.joanesarson@gmail.com","epic":"glx","data":{"blockers":["kik"],"title":"Add the exact slide counter and npm script"}}
+{"ts":"2026-08-13T19:19:57.728952Z","tick":"zwy","action":"block","actor":"k.joanesarson@gmail.com","epic":"glx","data":{"blockers":["x4r"],"title":"Re-ground after Feature Foundation"}}
+{"ts":"2026-08-13T19:19:57.748479Z","tick":"u0b","action":"block","actor":"k.joanesarson@gmail.com","epic":"jo0","data":{"blockers":["uhp"],"title":"Re-ground after Feature Problem"}}
+{"ts":"2026-08-13T19:19:57.76547Z","tick":"p1g","action":"block","actor":"k.joanesarson@gmail.com","epic":"vs2","data":{"blockers":["jd4"],"title":"Re-ground after Feature Model"}}
+{"ts":"2026-08-13T19:19:57.781765Z","tick":"74u","action":"block","actor":"k.joanesarson@gmail.com","epic":"nc1","data":{"blockers":["tyq"],"title":"Re-ground after Feature Commands"}}
+{"ts":"2026-08-13T19:19:57.797964Z","tick":"vtn","action":"block","actor":"k.joanesarson@gmail.com","epic":"fbc","data":{"blockers":["2zn"],"title":"Re-ground after Feature Example"}}
+{"ts":"2026-08-13T19:19:57.814021Z","tick":"6xo","action":"block","actor":"k.joanesarson@gmail.com","epic":"q19","data":{"blockers":["z8y"],"title":"Re-ground after Feature Setup"}}
+{"ts":"2026-08-13T19:19:57.831193Z","tick":"kba","action":"block","actor":"k.joanesarson@gmail.com","epic":"k5z","data":{"blockers":["byi"],"title":"Verify mechanical criteria and concept checklist"}}
+{"ts":"2026-08-13T19:19:57.848344Z","tick":"ser","action":"block","actor":"k.joanesarson@gmail.com","epic":"k5z","data":{"blockers":["kba"],"title":"Re-ground after Feature Coherence"}}
+{"ts":"2026-08-13T19:19:57.864742Z","tick":"uhp","action":"block","actor":"k.joanesarson@gmail.com","epic":"jo0","data":{"blockers":["zwy"],"title":"Write 01-problem.md — 2 slides"}}
+{"ts":"2026-08-13T19:19:57.880672Z","tick":"jd4","action":"block","actor":"k.joanesarson@gmail.com","epic":"vs2","data":{"blockers":["zwy"],"title":"Write 02-model.md — 5 slides"}}
+{"ts":"2026-08-13T19:19:57.896729Z","tick":"tyq","action":"block","actor":"k.joanesarson@gmail.com","epic":"nc1","data":{"blockers":["zwy"],"title":"Write 03-commands.md — 4 slides"}}
+{"ts":"2026-08-13T19:19:57.912806Z","tick":"2zn","action":"block","actor":"k.joanesarson@gmail.com","epic":"fbc","data":{"blockers":["zwy"],"title":"Write 04-example.md — 4 slides"}}
+{"ts":"2026-08-13T19:19:57.929405Z","tick":"z8y","action":"block","actor":"k.joanesarson@gmail.com","epic":"q19","data":{"blockers":["zwy"],"title":"Write 05-setup.md — 3 slides"}}
+{"ts":"2026-08-13T19:19:57.9459Z","tick":"byi","action":"block","actor":"k.joanesarson@gmail.com","epic":"k5z","data":{"blockers":["u0b","p1g","74u","vtn","6xo"],"title":"Cold read and fix terminology drift"}}
+{"ts":"2026-08-13T19:19:57.96415Z","tick":"692","action":"block","actor":"k.joanesarson@gmail.com","epic":"7pv","data":{"blockers":["k5z","ser"],"title":"Create PR for iteration 01.1"}}
+{"ts":"2026-08-13T19:19:57.982449Z","tick":"u3p","action":"block","actor":"k.joanesarson@gmail.com","epic":"f4a","data":{"blockers":["bwu"],"title":"Plan Iteration 01.2: read scope, create feature tick structure, begin first task"}}

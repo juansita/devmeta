@@ -1,85 +1,30 @@
 ---
 theme: default
 title: How DevMeta Works
-info: A scaffold deck. Replace this content with the real presentation.
-class: text-center
-transition: slide-left
+info: How DevMeta turns a Claude Code session into a repeatable delivery loop.
 mdc: true
 ---
 
 # How DevMeta Works
 
-Scaffold deck — proves the toolchain runs
-
-<div class="pt-12 text-sm opacity-70">
-Press <kbd>space</kbd> for the next slide
-</div>
+Give your coding agent a memory, and a loop it can drive on its own
 
 ---
-
-## Slide syntax
-
-Three dashes start a new slide. The rest is plain Markdown.
-
-- Bullet lists work
-- `inline code` works
-- **bold** and *italic* work
-
+src: ./pages/01-problem.md
 ---
 
-## Reveal one item at a time
-
-<v-clicks>
-
-- First click shows this
-- Second click shows this
-- Third click shows this
-
-</v-clicks>
-
+---
+src: ./pages/02-model.md
 ---
 
-## Code with line highlights
-
-```ts {2|3|all}
-const increment = defineIncrement({
-  iterations: 3,
-  features: ['spec', 'plan', 'run'],
-})
-```
-
 ---
-layout: two-cols
+src: ./pages/03-commands.md
 ---
 
-## Two columns
-
-Left side content.
-
-::right::
-
-## Right
-
-Right side content.
-
+---
+src: ./pages/04-example.md
 ---
 
-## Diagrams
-
-```mermaid
-graph LR
-  A[start-increment-spec] --> B[go]
-  B --> C[plan-iteration]
-  C --> D[run]
-  D --> E[reflect]
-  E --> C
-```
-
 ---
-layout: center
-class: text-center
+src: ./pages/05-setup.md
 ---
-
-# Replace this deck
-
-Run `/devmeta:start-increment-spec` to build the real one

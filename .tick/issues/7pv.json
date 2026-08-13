@@ -1,0 +1,13 @@
+{
+  "id": "7pv",
+  "title": "Iteration 01.1: Content spine",
+  "description": "Write all 15-20 slides of the DevMeta explainer deck in slides/slides.md. Narrative complete, stock theme, placeholder text slides where diagrams go in 01.2. Audience: developers who use Claude Code but have never seen DevMeta. Scope in .devmeta/increments/increment-01-zmf/_overview.md \u003e Iteration 01.1.",
+  "status": "open",
+  "priority": 1,
+  "type": "epic",
+  "owner": "k.joanesarson@gmail.com",
+  "acceptance_criteria": "cd slides \u0026\u0026 npm run build exits 0; deck has 15-20 slides; increment/iteration/feature distinction clear on a cold read",
+  "created_by": "k.joanesarson@gmail.com",
+  "created_at": "2026-08-13T19:14:07.174917Z",
+  "updated_at": "2026-08-13T19:14:07.174917Z"
+}
