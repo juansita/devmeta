@@ -1,0 +1,16 @@
+{
+  "id": "0xt",
+  "title": "Write the project CLAUDE.md",
+  "description": "## Objective\nA short orientation file for a fresh session in this repo. Lead with the symlink hazard.\n\n## Spec Reference\n`.devmeta/projects/2026-08-13-project-claude-md/2026-08-13-project-claude-md-spec.md`\n\n## Scope\n**Files:** `CLAUDE.md` (create)\n\n## Implementation\n1. Read the 'D — Project CLAUDE.md' brief in the iteration plan.\n2. Verify every claim against the machine before writing it — the spec has a check table.\n3. Under 60 lines. Lead with the symlink hazard.\n4. Do not restate README.md; point at it.\n\n## Tests\nRun: `cd slides \u0026\u0026 npm run build`, `cd slides \u0026\u0026 npm run slides`, and `wc -l CLAUDE.md`.",
+  "status": "closed",
+  "priority": 2,
+  "type": "task",
+  "owner": "k.joanesarson@gmail.com",
+  "parent": "wwp",
+  "acceptance_criteria": "CLAUDE.md under 60 lines; every claim verified; build and count unaffected",
+  "created_by": "k.joanesarson@gmail.com",
+  "created_at": "2026-08-13T19:34:23.613745Z",
+  "updated_at": "2026-08-13T19:38:29.132094Z",
+  "closed_at": "2026-08-13T19:38:29.132094Z",
+  "closed_reason": "CLAUDE.md written, 58 lines, all 13 claims verified against the machine"
+}

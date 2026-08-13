@@ -1,0 +1,19 @@
+{
+  "id": "h05",
+  "title": "Re-ground after Feature Diagram verification",
+  "description": "## Objective\nClose out the diagrams iteration.\n\n## Implementation\n1. Update `.devmeta/project-history.md`.\n2. Update the iteration status.md — all five features complete.\n3. Append to `.devmeta/lessons-learned.md`: what the three-wide wave cost and saved versus 01.1's five-wide.\n\n## Tests\nRun: `cd slides \u0026\u0026 npm run build` then `cd slides \u0026\u0026 npm run slides`",
+  "status": "closed",
+  "priority": 2,
+  "type": "task",
+  "owner": "k.joanesarson@gmail.com",
+  "blocked_by": [
+    "6d6"
+  ],
+  "parent": "jaj",
+  "acceptance_criteria": "both exit 0",
+  "created_by": "k.joanesarson@gmail.com",
+  "created_at": "2026-08-13T19:34:23.689623Z",
+  "updated_at": "2026-08-13T19:45:59.825687Z",
+  "closed_at": "2026-08-13T19:45:59.825687Z",
+  "closed_reason": "history, status and lessons updated"
+}

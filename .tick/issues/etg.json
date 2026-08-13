@@ -1,0 +1,18 @@
+{
+  "id": "etg",
+  "title": "Iteration 01.3: Theme and motion",
+  "description": "Custom Slidev theme, click-through reveals on 5+ slides, stepped diagram builds, slide transitions, layout pass. Scope in _overview.md \u003e Iteration 01.3.",
+  "status": "closed",
+  "priority": 1,
+  "type": "epic",
+  "owner": "k.joanesarson@gmail.com",
+  "blocked_by": [
+    "nbm"
+  ],
+  "acceptance_criteria": "npm run build exits 0 after theme change; click order correct through whole deck; no slide overflows at 16:9",
+  "created_by": "k.joanesarson@gmail.com",
+  "created_at": "2026-08-13T19:14:07.251481Z",
+  "updated_at": "2026-08-13T20:11:01.30828Z",
+  "closed_at": "2026-08-13T20:11:01.30828Z",
+  "closed_reason": "seriph theme, 13 slides with reveals, npm run layout delivered; PR #3 merged"
+}

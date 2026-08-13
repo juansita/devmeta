@@ -1,0 +1,19 @@
+{
+  "id": "kba",
+  "title": "Verify mechanical criteria and concept checklist",
+  "description": "## Objective\nProve the iteration's acceptance criteria hold, and record the evidence.\n\n## Spec Reference\n`.devmeta/projects/2026-08-13-deck-coherence/2026-08-13-deck-coherence-spec.md` — Sections 4-6\n\n## Scope\n**Files:** `slides/pages/*.md` (fixes only), `.devmeta/projects/2026-08-13-deck-coherence/context-log.md` (evidence)\n\n## Implementation\n1. `cd slides \u0026\u0026 npm run slides` reports 19 and every title matches the outline table in the iteration plan.\n2. Exactly three DIAGRAM-PLACEHOLDER comments exist, on slides 4, 10 and 14.\n3. No v-clicks, no non-default layout, no theme change — 01.3 needs a clean surface.\n4. Concept checklist: increment, iteration, feature, task, I\u0026A cycle, three user commands, four internal commands, .devmeta/ layout, devmeta.md config, tk's role. Record the slide number for each in the context log.\n5. Cold read: can a newcomer tell an increment from an iteration from a feature? If not, fix the model section.\n\n## Tests\nRun: `cd slides \u0026\u0026 npm run build` then `cd slides \u0026\u0026 npm run slides`",
+  "status": "closed",
+  "priority": 2,
+  "type": "task",
+  "owner": "k.joanesarson@gmail.com",
+  "blocked_by": [
+    "byi"
+  ],
+  "parent": "k5z",
+  "acceptance_criteria": "cd slides \u0026\u0026 npm run slides reports 19; all ten concepts recorded with slide numbers",
+  "created_by": "k.joanesarson@gmail.com",
+  "created_at": "2026-08-13T19:19:30.506307Z",
+  "updated_at": "2026-08-13T19:27:20.24167Z",
+  "closed_at": "2026-08-13T19:27:20.24167Z",
+  "closed_reason": "all ten concepts mapped to slide numbers; 19 slides; 3 placeholders on 4/10/14; 01.3 surface clean"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "nbm",
+  "title": "Iteration 01.2R: Inspect \u0026 Adapt on Iteration 01.2",
+  "description": "I\u0026A cycle for iteration 01.2.",
+  "status": "closed",
+  "priority": 1,
+  "type": "epic",
+  "owner": "k.joanesarson@gmail.com",
+  "blocked_by": [
+    "7uy"
+  ],
+  "created_by": "k.joanesarson@gmail.com",
+  "created_at": "2026-08-13T19:14:07.23371Z",
+  "updated_at": "2026-08-13T19:53:43.545575Z",
+  "closed_at": "2026-08-13T19:53:43.545575Z",
+  "closed_reason": "I\u0026A cycle 01.2R complete; 01.3 planned and ready"
+}

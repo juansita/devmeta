@@ -1,0 +1,19 @@
+{
+  "id": "ytm",
+  "title": "Kick off I\u0026A Cycle 01.2R",
+  "description": "## Implementation\n1. Confirm base branch, clean tree.\n2. Close iteration 01.2 (tick 7uy).\n3. `tk next` returns 01.2R (tick nbm).",
+  "status": "closed",
+  "priority": 2,
+  "type": "task",
+  "owner": "k.joanesarson@gmail.com",
+  "blocked_by": [
+    "fcq"
+  ],
+  "parent": "7uy",
+  "acceptance_criteria": "iteration 01.2 closed; tk next returns 01.2R",
+  "created_by": "k.joanesarson@gmail.com",
+  "created_at": "2026-08-13T19:34:23.771915Z",
+  "updated_at": "2026-08-13T19:47:01.605867Z",
+  "closed_at": "2026-08-13T19:47:01.605867Z",
+  "closed_reason": "iteration 01.2 closing on base branch"
+}

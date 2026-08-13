@@ -1,0 +1,19 @@
+{
+  "id": "uhp",
+  "title": "Write 01-problem.md — 2 slides",
+  "description": "## Objective\nWrite the 2 slides of the Problem section. Slides 2-3 of the deck.\n\n## Spec Reference\n`.devmeta/projects/2026-08-13-deck-problem/2026-08-13-deck-problem-spec.md` — Section: \"Implementation guide\"\n\n## Scope\n**Files:** `slides/pages/01-problem.md` — replace the stub. Touch NO other file.\n\n## Implementation\n1. Read the spec, then the source material it names, then the Style contract in `.devmeta/increments/increment-01-zmf/iterations/iteration-01.1/plan.md`.\n2. Write each slide per the spec's per-slide breakdown. Titles must match the outline table.\n3. Keep the count at exactly 2. Do not add or drop slides.\n\n## Tests\nRun: `cd slides \u0026\u0026 npm run build` then `cd slides \u0026\u0026 npm run slides`\nThe total must stay 19 and the build must exit 0. Do NOT close until both pass.",
+  "status": "closed",
+  "priority": 2,
+  "type": "task",
+  "owner": "k.joanesarson@gmail.com",
+  "blocked_by": [
+    "zwy"
+  ],
+  "parent": "jo0",
+  "acceptance_criteria": "cd slides \u0026\u0026 npm run build exits 0; cd slides \u0026\u0026 npm run slides still reports 19",
+  "created_by": "k.joanesarson@gmail.com",
+  "created_at": "2026-08-13T19:19:08.833663Z",
+  "updated_at": "2026-08-13T19:23:51.664934Z",
+  "closed_at": "2026-08-13T19:23:51.664934Z",
+  "closed_reason": "2 slides written; build green; count still 19"
+}

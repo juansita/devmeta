@@ -1,0 +1,20 @@
+{
+  "id": "q43",
+  "title": "01.3: Layout and overflow",
+  "description": "## Scope\nDeliver npm run layout, balance the motion across the deck, confirm every increment exit criterion.\n\n## Spec\n`.devmeta/projects/2026-08-13-layout-overflow/2026-08-13-layout-overflow-spec.md`\n\n## Worker Instructions\n- Complete tasks in order\n- Read the spec and `context-log.md` in your feature directory before starting\n- Read `.devmeta/lessons-learned.md` before starting\n- Read the Motion contract in `.devmeta/increments/increment-01-zmf/iterations/iteration-01.3/plan.md`\n- Append learnings to context-log.md when done",
+  "status": "closed",
+  "priority": 1,
+  "type": "epic",
+  "owner": "k.joanesarson@gmail.com",
+  "blocked_by": [
+    "38s",
+    "iul",
+    "66m"
+  ],
+  "parent": "etg",
+  "created_by": "k.joanesarson@gmail.com",
+  "created_at": "2026-08-13T19:52:21.996284Z",
+  "updated_at": "2026-08-13T20:10:16.218737Z",
+  "closed_at": "2026-08-13T20:10:16.218737Z",
+  "closed_reason": "npm run layout delivered and negative-tested; motion balanced; all 9 exit criteria evidenced"
+}

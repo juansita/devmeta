@@ -1,0 +1,19 @@
+{
+  "id": "yfj",
+  "title": "Commit metadata to base branch",
+  "description": "## Objective\n.tick/ and .devmeta/ change during orchestration and are not in the iteration PR. Commit them directly to the base branch.\n\n## Implementation\n1. `git add .tick/ .devmeta/`\n2. `git status --short` — verify only metadata files are staged.\n3. Commit as 'Update .tick/ and .devmeta/ metadata for iteration 01.1'.\n\n## Tests\n`git status --short` is clean afterwards.",
+  "status": "closed",
+  "priority": 2,
+  "type": "task",
+  "owner": "k.joanesarson@gmail.com",
+  "blocked_by": [
+    "rrp"
+  ],
+  "parent": "7pv",
+  "acceptance_criteria": "working tree clean on the base branch",
+  "created_by": "k.joanesarson@gmail.com",
+  "created_at": "2026-08-13T19:19:30.595896Z",
+  "updated_at": "2026-08-13T19:29:08.164506Z",
+  "closed_at": "2026-08-13T19:29:08.164506Z",
+  "closed_reason": "metadata committed to base branch; working tree clean"
+}

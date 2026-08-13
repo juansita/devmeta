@@ -1,0 +1,19 @@
+{
+  "id": "wrl",
+  "title": "Plan Iteration 01.3: read scope, create feature tick structure, begin first task",
+  "description": "## Implementation\n1. Read `_overview.md` \u003e Iteration 01.3 — theme, click reveals, stepped diagram builds, transitions, layout pass.\n2. Run `/devmeta:plan-iteration 01.3`.\n3. Close this task and 01.2R, then `tk next`.",
+  "status": "closed",
+  "priority": 2,
+  "type": "task",
+  "owner": "k.joanesarson@gmail.com",
+  "blocked_by": [
+    "lz9"
+  ],
+  "parent": "nbm",
+  "acceptance_criteria": "01.3 tick structure exists; tk next returns its first task",
+  "created_by": "k.joanesarson@gmail.com",
+  "created_at": "2026-08-13T19:34:23.853743Z",
+  "updated_at": "2026-08-13T19:53:43.526403Z",
+  "closed_at": "2026-08-13T19:53:43.526403Z",
+  "closed_reason": "01.3 planned: 5 features in 3 waves, specs, context logs, tick structure, status.md"
+}

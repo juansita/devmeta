@@ -1,0 +1,19 @@
+{
+  "id": "3tv",
+  "title": "Kick off I\u0026A Cycle 01.3R",
+  "description": "## Implementation\n1. Confirm base branch, clean tree.\n2. Close iteration 01.3 (tick etg).\n3. `tk next` returns 01.3R (tick j48).",
+  "status": "closed",
+  "priority": 2,
+  "type": "task",
+  "owner": "k.joanesarson@gmail.com",
+  "blocked_by": [
+    "2x1"
+  ],
+  "parent": "etg",
+  "acceptance_criteria": "iteration 01.3 closed; tk next returns 01.3R",
+  "created_by": "k.joanesarson@gmail.com",
+  "created_at": "2026-08-13T19:53:08.82833Z",
+  "updated_at": "2026-08-13T20:11:01.290344Z",
+  "closed_at": "2026-08-13T20:11:01.290344Z",
+  "closed_reason": "iteration 01.3 closing on base branch"
+}

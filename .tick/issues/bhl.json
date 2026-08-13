@@ -1,0 +1,19 @@
+{
+  "id": "bhl",
+  "title": "Add reveals to slides 17-19 and the title slide",
+  "description": "## Objective\nClick-through reveals on slides 17-19 and the title slide. Motion only — do not rewrite prose.\n\n## Spec Reference\n`.devmeta/projects/2026-08-13-motion-setup/2026-08-13-motion-setup-spec.md`\n\n## Scope\n**Files:** `slides/pages/05-setup.md`, title slide in `slides/slides.md`\n\n## Implementation\n1. Read the Motion contract in the iteration plan.\n2. Wrap bullet lists in \u003cv-clicks\u003e. Do not annotate bullets individually.\n3. Judge which slides need it. Over-animation is a defect; leaving a slide alone is a valid decision.\n4. Record which slides you animated, which you left alone, and the click-step count per slide.\n\n## Tests\nRun: `cd slides \u0026\u0026 npm run slides` (must report 19) and build to your OWN --out dir.\nDo NOT run npm run build — two other workers are running.",
+  "status": "closed",
+  "priority": 2,
+  "type": "task",
+  "owner": "k.joanesarson@gmail.com",
+  "blocked_by": [
+    "pze"
+  ],
+  "parent": "66m",
+  "acceptance_criteria": "count stays 19; own build exits 0; decisions recorded",
+  "created_by": "k.joanesarson@gmail.com",
+  "created_at": "2026-08-13T19:52:52.200372Z",
+  "updated_at": "2026-08-13T20:01:29.598815Z",
+  "closed_at": "2026-08-13T20:01:29.598815Z",
+  "closed_reason": "3 of 4 slides animated, 11 click steps; 0px overflow at every click state; measurement negative-tested"
+}

@@ -1,0 +1,19 @@
+{
+  "id": "ser",
+  "title": "Re-ground after Feature Coherence",
+  "description": "## Objective\nClose out the content spine.\n\n## Implementation\n1. Update `.devmeta/project-history.md` with the finished deck.\n2. Update the iteration status.md — all seven features complete.\n3. Append to `.devmeta/lessons-learned.md`: what the parallel-file split cost and saved.\n\n## Tests\nRun: `cd slides \u0026\u0026 npm run build` then `cd slides \u0026\u0026 npm run slides`",
+  "status": "closed",
+  "priority": 2,
+  "type": "task",
+  "owner": "k.joanesarson@gmail.com",
+  "blocked_by": [
+    "kba"
+  ],
+  "parent": "k5z",
+  "acceptance_criteria": "both exit 0",
+  "created_by": "k.joanesarson@gmail.com",
+  "created_at": "2026-08-13T19:19:30.528734Z",
+  "updated_at": "2026-08-13T19:27:42.026443Z",
+  "closed_at": "2026-08-13T19:27:42.026443Z",
+  "closed_reason": "history, status and lessons updated; build and count green"
+}

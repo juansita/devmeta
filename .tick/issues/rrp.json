@@ -1,0 +1,19 @@
+{
+  "id": "rrp",
+  "title": "Merge PR and return to base branch",
+  "description": "## Objective\nMerge before the I\u0026A cycle runs. The I\u0026A cycle works on the base branch.\n\n## Implementation\n1. `gh pr merge --merge` — never --squash or --rebase, so branch history stays visible.\n2. Check out the base branch and pull.\n\n## Tests\nRun: `cd slides \u0026\u0026 npm run build` on the base branch after merging.",
+  "status": "closed",
+  "priority": 2,
+  "type": "task",
+  "owner": "k.joanesarson@gmail.com",
+  "blocked_by": [
+    "692"
+  ],
+  "parent": "7pv",
+  "acceptance_criteria": "PR merged with --merge; base branch builds green",
+  "created_by": "k.joanesarson@gmail.com",
+  "created_at": "2026-08-13T19:19:30.574109Z",
+  "updated_at": "2026-08-13T19:29:02.188321Z",
+  "closed_at": "2026-08-13T19:29:02.188321Z",
+  "closed_reason": "PR #1 merged with --merge; on base branch 2026-08-13-devmeta-deck; build green"
+}

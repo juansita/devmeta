@@ -1,0 +1,16 @@
+{
+  "id": "b7z",
+  "title": "Rewrite slides.md as a thin table of contents",
+  "description": "## Objective\nslides/slides.md becomes headmatter, one title slide, and five src: imports. Nothing else.\n\n## Spec Reference\n`.devmeta/projects/2026-08-13-deck-foundation/2026-08-13-deck-foundation-spec.md` — Section: \"1. Rewrite slides.md\"\n\n## Scope\n**Files:** `slides/slides.md` — full rewrite\n\n## Implementation\n1. Headmatter: theme default, title, info, mdc true. No transition, no theme change — 01.3 owns those.\n2. Title slide: '# How DevMeta Works' plus a one-line subtitle.\n3. Five src: import blocks, in order 01-problem to 05-setup. Leave each block body empty.\n\n## Tests\nRun: `cd slides \u0026\u0026 npm run build`\nDo NOT close until it exits 0.",
+  "status": "closed",
+  "priority": 2,
+  "type": "task",
+  "owner": "k.joanesarson@gmail.com",
+  "parent": "glx",
+  "acceptance_criteria": "cd slides \u0026\u0026 npm run build exits 0",
+  "created_by": "k.joanesarson@gmail.com",
+  "created_at": "2026-08-13T19:18:49.851093Z",
+  "updated_at": "2026-08-13T19:21:23.573407Z",
+  "closed_at": "2026-08-13T19:21:23.573407Z",
+  "closed_reason": "slides.md is a thin TOC with five src: imports; build green"
+}

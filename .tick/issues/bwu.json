@@ -1,0 +1,16 @@
+{
+  "id": "bwu",
+  "title": "Run /devmeta:reflect 01.1",
+  "description": "## Objective\nThe full I\u0026A cycle for iteration 01.1. Invoke the skill — it handles the whole sequence internally.\n\n## Implementation\nRun `/devmeta:reflect 01.1`. Do NOT break this into sub-tasks; the skill covers code review, docs audit, gap verification, project history, and plan reassessment.\n\n## Tests\nRun: `cd slides \u0026\u0026 npm run build` and `cd slides \u0026\u0026 npm run slides` on the base branch.",
+  "status": "closed",
+  "priority": 2,
+  "type": "task",
+  "owner": "k.joanesarson@gmail.com",
+  "parent": "f4a",
+  "acceptance_criteria": "I\u0026A report written to .devmeta/increments/increment-01-zmf/ia-cycles/",
+  "created_by": "k.joanesarson@gmail.com",
+  "created_at": "2026-08-13T19:19:42.108604Z",
+  "updated_at": "2026-08-13T19:32:03.20912Z",
+  "closed_at": "2026-08-13T19:32:03.20912Z",
+  "closed_reason": "I\u0026A report written to ia-cycles/iteration-01.1.md; all 7 scope items verified closed; 1 drift fixed"
+}
