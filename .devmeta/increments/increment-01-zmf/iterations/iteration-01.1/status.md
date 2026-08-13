@@ -10,7 +10,7 @@
 
 | Feature | ID | Tasks | Status | Depends On |
 |---------|----|-------|--------|-----------|
-| Foundation | `glx` | 4 | Not started | — |
+| Foundation | `glx` | 4 | **Complete** | — |
 | Problem | `jo0` | 2 | Not started | Foundation |
 | Model | `vs2` | 2 | Not started | Foundation |
 | Commands | `nc1` | 2 | Not started | Foundation |

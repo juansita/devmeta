@@ -2,7 +2,7 @@
   "id": "x4r",
   "title": "Add the exact slide counter and npm script",
   "description": "## Objective\nA script that loads the deck through @slidev/parser, follows src: imports, prints the count and every title, and fails outside 15-20.\n\n## Spec Reference\n`.devmeta/projects/2026-08-13-deck-foundation/2026-08-13-deck-foundation-spec.md` — Section: \"3. Write count-slides.mjs\"\n\n## Scope\n**Files:** `slides/scripts/count-slides.mjs` (create), `slides/package.json` (add 'slides' script)\n\n## Implementation\n1. Import { load } from '@slidev/parser/fs'. Signature is load(rootsInfo, filepath) — the one-arg form throws ERR_INVALID_ARG_TYPE.\n2. Resolve root as the parent of scripts/.\n3. Print 'slides: N' then a numbered title list. Title falls back to the first line of slide.content.\n4. process.exit(1) if N \u003c 15 or N \u003e 20.\n\n## Tests\nRun: `cd slides \u0026\u0026 npm run slides`\nMust report 19 and exit 0. Do NOT close until it does.",
-  "status": "open",
+  "status": "closed",
   "priority": 2,
   "type": "task",
   "owner": "k.joanesarson@gmail.com",
@@ -13,5 +13,7 @@
   "acceptance_criteria": "cd slides \u0026\u0026 npm run slides reports 19 slides and exits 0",
   "created_by": "k.joanesarson@gmail.com",
   "created_at": "2026-08-13T19:18:49.902592Z",
-  "updated_at": "2026-08-13T19:19:57.710067Z"
+  "updated_at": "2026-08-13T19:21:23.610498Z",
+  "closed_at": "2026-08-13T19:21:23.610498Z",
+  "closed_reason": "count-slides.mjs reports 19 via @slidev/parser; npm run slides wired up"
 }

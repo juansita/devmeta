@@ -55,3 +55,6 @@
 {"ts":"2026-08-13T19:19:57.9459Z","tick":"byi","action":"block","actor":"k.joanesarson@gmail.com","epic":"k5z","data":{"blockers":["u0b","p1g","74u","vtn","6xo"],"title":"Cold read and fix terminology drift"}}
 {"ts":"2026-08-13T19:19:57.96415Z","tick":"692","action":"block","actor":"k.joanesarson@gmail.com","epic":"7pv","data":{"blockers":["k5z","ser"],"title":"Create PR for iteration 01.1"}}
 {"ts":"2026-08-13T19:19:57.982449Z","tick":"u3p","action":"block","actor":"k.joanesarson@gmail.com","epic":"f4a","data":{"blockers":["bwu"],"title":"Plan Iteration 01.2: read scope, create feature tick structure, begin first task"}}
+{"ts":"2026-08-13T19:21:23.573765Z","tick":"b7z","action":"close","actor":"k.joanesarson@gmail.com","epic":"glx","data":{"reason":"slides.md is a thin TOC with five src: imports; build green","title":"Rewrite slides.md as a thin table of contents"}}
+{"ts":"2026-08-13T19:21:23.593263Z","tick":"kik","action":"close","actor":"k.joanesarson@gmail.com","epic":"glx","data":{"reason":"five stub pages at exact slide counts 2/5/4/4/3","title":"Write the five stub page files"}}
+{"ts":"2026-08-13T19:21:23.610752Z","tick":"x4r","action":"close","actor":"k.joanesarson@gmail.com","epic":"glx","data":{"reason":"count-slides.mjs reports 19 via @slidev/parser; npm run slides wired up","title":"Add the exact slide counter and npm script"}}
