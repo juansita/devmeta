@@ -1,2 +1,7 @@
 # Binary / scratch artifacts that don't belong in a slash-commands repo
 devmeta.zip
+
+# Slidev deck
+node_modules/
+slides/dist/
+.slidev-build/
