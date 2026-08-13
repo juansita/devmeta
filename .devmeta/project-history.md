@@ -2,6 +2,17 @@
 
 Narrative record of what was built, newest first.
 
+## 2026-08-13 — Increment 01-zmf, iteration 01.1, content features
+
+Five content features ran in parallel, one subagent each, each owning one file in
+`slides/pages/`.
+
+- **Problem** (slides 2-3) — the opening. Slide 2 names the pain: session ends, context
+  dies, nothing on disk says what is done. Slide 3 turns it: state lives in `.devmeta/`
+  and `.tick/`, and you drive it with two commands. Fixes the deck's category label for
+  DevMeta as "a slash-command framework for Claude Code", and deliberately introduces no
+  concept nouns, so slide 4 can present the hierarchy cold.
+
 ## 2026-08-13 — Increment 01-zmf, iteration 01.1, Feature Foundation
 
 Split the deck across files so five content features can run in parallel.
