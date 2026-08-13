@@ -18,10 +18,6 @@
 - It cuts the base branch, checks the environment, then plans iteration 01.1.
 - Features get cut so no two of them touch one file.
 
-```text
-Foundation → Problem, Model, Commands, Example, Setup → Coherence
-```
-
 ```mermaid
 graph TD
   I["Iteration 01.1"]

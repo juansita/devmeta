@@ -2,12 +2,14 @@
   "id": "wwp",
   "title": "01.2: Project CLAUDE.md",
   "description": "## Scope\nCreate CLAUDE.md at the repo root. Orients a fresh session and flags the symlink hazard. Added by I\u0026A cycle 01.1R.\n\n## Spec\n`.devmeta/projects/2026-08-13-project-claude-md/2026-08-13-project-claude-md-spec.md`\n\n## Worker Instructions\n- Complete tasks in order\n- Read the spec and `context-log.md` in your feature directory before starting\n- Read `.devmeta/lessons-learned.md` before starting\n- Read the Mermaid contract and your diagram brief in `.devmeta/increments/increment-01-zmf/iterations/iteration-01.2/plan.md`\n- Append learnings to context-log.md when done",
-  "status": "open",
+  "status": "closed",
   "priority": 2,
   "type": "epic",
   "owner": "k.joanesarson@gmail.com",
   "parent": "7uy",
   "created_by": "k.joanesarson@gmail.com",
   "created_at": "2026-08-13T19:33:56.506614Z",
-  "updated_at": "2026-08-13T19:33:56.506614Z"
+  "updated_at": "2026-08-13T19:43:27.182177Z",
+  "closed_at": "2026-08-13T19:43:27.182177Z",
+  "closed_reason": "wave 1 feature delivered"
 }

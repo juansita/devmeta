@@ -2,7 +2,7 @@
   "id": "oi4",
   "title": "Re-ground after Feature Tick tree",
   "description": "## Objective\nRecord the diagram before the verification pass reads it.\n\n## Implementation\n1. Update `.devmeta/project-history.md`.\n2. Update the iteration status.md feature table.\n3. Append your node labels and graph direction to the context-log — the verification pass compares the three diagrams against each other.\n\n## Tests\nRun: `cd slides \u0026\u0026 npm run slides`",
-  "status": "open",
+  "status": "closed",
   "priority": 2,
   "type": "task",
   "owner": "k.joanesarson@gmail.com",
@@ -13,5 +13,7 @@
   "acceptance_criteria": "cd slides \u0026\u0026 npm run slides exits 0",
   "created_by": "k.joanesarson@gmail.com",
   "created_at": "2026-08-13T19:33:56.637009Z",
-  "updated_at": "2026-08-13T19:33:56.637009Z"
+  "updated_at": "2026-08-13T19:43:27.093638Z",
+  "closed_at": "2026-08-13T19:43:27.093638Z",
+  "closed_reason": "history, status and context logs updated"
 }

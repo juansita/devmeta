@@ -41,7 +41,7 @@ graph TD
 
 - The unit of parallel execution, and the unit of context.
 - One subagent runs one feature, start to finish.
-- Tasks inside a feature are sequential steps, not parallel workers.
+- Tasks run in order inside a feature: one step, one commit.
 - Features that share no files run at the same time.
 - Planning's real job: find boundaries that maximize independence.
 - `tk`, the tracker holding this structure, calls a feature an epic.
