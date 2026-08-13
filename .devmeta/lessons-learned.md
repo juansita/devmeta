@@ -49,6 +49,20 @@ Accumulated learnings. Each I&A cycle adds to this file.
   90-115s wall clock, all five landing inside two minutes. Sequential would have been
   one context carrying all five sections. The split bought both wall-clock and context
   headroom, and cost one extra wave for coherence.
+## Iteration 01.2
+
+- **The global `slidev` binary cannot resolve `@slidev/theme-default`.** It fails with
+  `The theme "@slidev/theme-default" was not found and cannot prompt for installation`.
+  The theme is a local devDependency, so always run through the `slides/` npm scripts.
+  This rule was living in `.devmeta/devmeta.md` and copy-pasted into six feature context
+  logs, but was never here — which is why a spec cited the wrong source for it. Rules
+  that every worker needs belong in one place, and this file is it.
+- **Piping `npm run` to `grep`, `tail` or `head` returns the pipe's exit code**, not the
+  command's, so a failing check reads as a pass. Run it bare, check `$?`, then run it
+  again for output. First hit in 01.1, hit again in 01.2 — it is now in `CLAUDE.md`.
+
+## Iteration 01.1
+
 - **`gh pr create` targets the upstream repo in a fork, not your own.** The first
   attempt failed with "No commits between…" because it aimed at `mkelk/devmeta`. Always
   pass `--repo juansita/devmeta` and a `--head juansita:<branch>` in this repo.

@@ -21,8 +21,25 @@ It is the only feature allowed to touch every page file, which is why it runs al
 A Mermaid parse error does not fail the build — it renders an error box on the slide.
 The build exit code proves nothing about the diagrams.
 
-Run the dev server and load slides 4, 10 and 14. Confirm each shows a diagram and not an
-error box. Then grep the built bundle for each diagram's node labels.
+**Grepping the built bundle does not work either.** Corrected during 01.2 by the Loop
+worker: Slidev passes Mermaid source to its component as an lz-string-compressed
+`code-lz` prop, so plaintext node labels never appear in `dist/`. A grep that finds
+nothing is not evidence of failure, and a grep that finds something is measuring the
+wrong thing.
+
+`mermaid.parse()` in bare Node does not work either — it fails with
+`DOMPurify.addHook is not a function` because it needs a DOM. That error is not a syntax
+error; do not misread it as one.
+
+**Render the slides headlessly and read the live SVG.** `playwright-chromium` is already
+in `slides/node_modules`. Build, serve the output, load slides 4, 10 and 14, and assert
+for each:
+
+- the node and edge labels you expect are present as SVG text
+- no Mermaid error box is on the slide
+
+Do not use the chrome-devtools MCP browser — it is single-instance and another worker
+may hold it. Headless `playwright-chromium` runs concurrently.
 
 ### 2. Check the set reads as one
 
