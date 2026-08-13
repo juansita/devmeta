@@ -2,7 +2,7 @@
   "id": "6d6",
   "title": "Verify mechanical criteria and slide integrity",
   "description": "## Objective\nConfirm nothing was orphaned and 01.3's surface is clean.\n\n## Spec Reference\n`.devmeta/projects/2026-08-13-diagram-verify/2026-08-13-diagram-verify-spec.md` — Sections 3-4\n\n## Implementation\n1. `grep -rn 'DIAGRAM-PLACEHOLDER' slides/` must return nothing.\n2. `grep -rnE 'v-click|^layout:|^transition:|classDef|style ' slides/pages/` must return nothing.\n3. `cd slides \u0026\u0026 npm run slides` reports 19.\n4. Re-read slides 4, 10 and 14 in full. The 01.1 narrative must still make sense with the stand-in gone.\n\n## Tests\nRun: `cd slides \u0026\u0026 npm run build` then `cd slides \u0026\u0026 npm run slides`.",
-  "status": "open",
+  "status": "closed",
   "priority": 2,
   "type": "task",
   "owner": "k.joanesarson@gmail.com",
@@ -13,5 +13,7 @@
   "acceptance_criteria": "no placeholders remain; no 01.3 features present; count 19; slides read correctly",
   "created_by": "k.joanesarson@gmail.com",
   "created_at": "2026-08-13T19:34:23.672572Z",
-  "updated_at": "2026-08-13T19:34:23.672572Z"
+  "updated_at": "2026-08-13T19:45:39.181637Z",
+  "closed_at": "2026-08-13T19:45:39.181637Z",
+  "closed_reason": "no placeholders; 01.3 surface clean; count 19; Task definition restored; slide 14 de-overloaded"
 }

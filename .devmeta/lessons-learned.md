@@ -51,6 +51,25 @@ Accumulated learnings. Each I&A cycle adds to this file.
   headroom, and cost one extra wave for coherence.
 ## Iteration 01.2
 
+- **A green build is not a rendered diagram.** Mermaid parse errors render an error box
+  on the slide and still exit 0. Worse, the two obvious checks both lie: grepping the
+  bundle finds nothing because Slidev lz-string-compresses the source into a `code-lz`
+  prop, and `querySelectorAll('svg')` finds nothing because the SVG lives in the mermaid
+  component's **shadow root**. Reach `.slidev-page-N .mermaid` → `shadowRoot`. Also,
+  `mermaid.parse()` in bare Node dies with `DOMPurify.addHook is not a function` — it
+  needs a DOM, and that error is not a syntax error.
+- **Promote a verification you had to invent into a command.** The shadow-root render
+  check started as three workers each writing their own throwaway script. It is now
+  `slides/scripts/verify-diagrams.mjs` behind `npm run diagrams`. The rule that keeps
+  earning out: if a criterion can only be checked by looking, turn it into an exit code.
+- **A diagram takes the whole slide body.** Keeping slide 4's bullets alongside a
+  three-deep `graph TD` overflowed the frame and clipped a node. "The diagram replaces
+  the stand-in, it does not join it" turned out to be a layout constraint, not an
+  editorial preference. Write it as one in the next diagram contract.
+- **Deleting a stand-in can delete a definition.** Slide 4's bullets held the deck's only
+  definition of "Task", which is on the increment's concept checklist. The worker that
+  caused it flagged it instead of quietly shipping, and the verification wave fixed it.
+  **Before deleting prose to make room, check what only that prose said.**
 - **The global `slidev` binary cannot resolve `@slidev/theme-default`.** It fails with
   `The theme "@slidev/theme-default" was not found and cannot prompt for installation`.
   The theme is a local devDependency, so always run through the `slides/` npm scripts.
