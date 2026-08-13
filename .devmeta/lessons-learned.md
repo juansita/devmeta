@@ -29,6 +29,15 @@ Accumulated learnings. Each I&A cycle adds to this file.
   cover the same commands from different angles. Each spec said explicitly what the
   other owned, and neither duplicated the other. Cheap to write, and it removes the
   most likely coherence defect before it happens.
+- **Make workers verify external facts, not recall them.** The Setup spec said "do not
+  ship a command you have not checked". The worker fetched the install URL, confirmed
+  the symlink on disk, and confirmed the merge driver in `git config` before writing the
+  slide. Every install line in the deck is checked rather than remembered.
+- **A worker that spots a spec/reality mismatch should report it, not silently pick.**
+  The Example worker found that slide 15's "commit and tests per task" describes
+  `run.md`'s model, which this iteration deviates from. It taught the model, flagged the
+  gap, and left the call to the I&A cycle. That is the right instinct — record it here
+  so later workers copy it.
 - **Deviations from the standard git model** are recorded in the iteration `status.md`.
   Five parallel subagents cannot each own a branch in one working tree, and worktrees
   would not carry `slides/node_modules`. The I&A cycle should rule on whether 01.2 keeps

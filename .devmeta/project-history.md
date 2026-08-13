@@ -22,6 +22,14 @@ Five content features ran in parallel, one subagent each, each owning one file i
   the loop. Every claim traced back to `README.md`, `devmeta/go.md`, or a command file's
   frontmatter.
 
+- **Example** (slides 13-16) — one increment end to end, using this deck's own
+  increment. Real title, real exclusions, real seven-feature split, real iteration tick
+  `7pv`. The self-reference lands on slide 13 and again on slide 15, where the slide
+  names the file it came from.
+- **Setup** (slides 17-19) — the close. Disk layout, `devmeta.md` config, and an install
+  block whose every command was checked against the live URLs and against this repo
+  before it shipped.
+
 ## 2026-08-13 — Increment 01-zmf, iteration 01.1, Feature Foundation
 
 Split the deck across files so five content features can run in parallel.
