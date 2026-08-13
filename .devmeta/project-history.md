@@ -2,6 +2,18 @@
 
 Narrative record of what was built, newest first.
 
+## 2026-08-13 — Increment 01-zmf, iteration 01.3, Feature Theme
+
+Switched the deck from the stock `default` theme to `seriph` and set a deck-wide
+`slide-left` transition. Serif titles, plain body — the right register for a technical
+talk, and it needed no slide rewrites.
+
+The measurement that matters for the rest of the iteration: rendered headlessly at
+1280×720, slide 4 has **1px of vertical headroom** and slides 17 and 19 have exactly 0px
+of overflow. Slide 4 is heading-plus-diagram with no bullets because its bullets caused an
+overflow in 01.2, and under the new theme it is still right at the edge. Anything added
+there will break it.
+
 ## 2026-08-13 — Iteration 01.2 complete (I&A cycle 01.2R)
 
 The diagrams landed, but the story of this iteration is that the way it planned to check

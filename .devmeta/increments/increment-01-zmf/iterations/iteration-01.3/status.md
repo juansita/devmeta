@@ -13,7 +13,7 @@
 
 | Feature | ID | Tasks | Status | Depends On |
 |---------|----|-------|--------|-----------|
-| Theme | `0la` | 2 | Not started | — |
+| Theme | `0la` | 2 | **Complete** | — |
 | Motion — problem and model | `38s` | 2 | Not started | Theme |
 | Motion — commands and example | `iul` | 2 | Not started | Theme |
 | Motion — setup and title | `66m` | 2 | Not started | Theme |

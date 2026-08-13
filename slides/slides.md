@@ -1,7 +1,8 @@
 ---
-theme: default
+theme: seriph
 title: How DevMeta Works
 info: How DevMeta turns a Claude Code session into a repeatable delivery loop.
+transition: slide-left
 mdc: true
 ---
 
