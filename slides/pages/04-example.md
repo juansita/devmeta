@@ -16,7 +16,7 @@
 
 - You run `/devmeta:go` once. Nothing else is typed after this.
 - It cuts the base branch, checks the environment, then plans iteration 01.1.
-- Features get chosen so that no two of them touch the same file.
+- Features get cut so no two of them touch one file.
 
 ```text
 Foundation → Problem, Model, Commands, Example, Setup → Coherence
@@ -44,7 +44,7 @@ Foundation → Problem, Model, Commands, Example, Setup → Coherence
 
 - The PR merges into the base branch before anything else happens.
 - The I&A cycle reviews the code, audits docs, reassesses the plan.
-- Lessons land in `.devmeta/lessons-learned.md` where the next iteration reads them.
+- This iteration's lesson: split the artifact before splitting the work.
 - Its last task is real work: planning iteration 01.2, the diagrams.
 - No handoff gap, so `/devmeta:go` rolls straight into the next iteration.
 - When 01.3 closes, the increment closes and `/devmeta:go` hands back.

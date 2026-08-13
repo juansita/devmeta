@@ -39,7 +39,7 @@
 - Tasks inside a feature are sequential steps, not parallel workers.
 - Features that share no files run at the same time.
 - Planning's real job: find boundaries that maximize independence.
-- `tk` stores a feature as an epic, a task as a task.
+- `tk`, the tracker holding this structure, calls a feature an epic.
 
 ---
 
