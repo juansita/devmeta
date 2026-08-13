@@ -16,7 +16,7 @@
 | Commands | `nc1` | 2 | **Complete** | Foundation |
 | Example | `fbc` | 2 | **Complete** | Foundation |
 | Setup | `q19` | 2 | **Complete** | Foundation |
-| Coherence | `k5z` | 3 | Not started | Problem, Model, Commands, Example, Setup |
+| Coherence | `k5z` | 3 | **Complete** | Problem, Model, Commands, Example, Setup |
 
 ## Feature Independence Map
 

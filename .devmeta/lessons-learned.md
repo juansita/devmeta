@@ -38,6 +38,17 @@ Accumulated learnings. Each I&A cycle adds to this file.
   `run.md`'s model, which this iteration deviates from. It taught the model, flagged the
   gap, and left the call to the I&A cycle. That is the right instinct — record it here
   so later workers copy it.
+- **A written style contract prevents the drift a coherence pass would have to fix.**
+  Five workers wrote independently against one contract in the iteration plan. The
+  coherence pass found zero terminology drift — no forbidden words, consistent command
+  formatting, "epic" confined to the one slide that explains it. What it did find were
+  gaps no single worker could see: a term used but never introduced, and two slides
+  claiming the same payoff. **Contracts catch local drift; only a whole-deck read
+  catches missing introductions and duplicated payoffs.** Budget a wave for it.
+- **Parallel feature cost, measured.** Five subagents, roughly 45-50k tokens each,
+  90-115s wall clock, all five landing inside two minutes. Sequential would have been
+  one context carrying all five sections. The split bought both wall-clock and context
+  headroom, and cost one extra wave for coherence.
 - **Deviations from the standard git model** are recorded in the iteration `status.md`.
   Five parallel subagents cannot each own a branch in one working tree, and worktrees
   would not carry `slides/node_modules`. The I&A cycle should rule on whether 01.2 keeps

@@ -26,6 +26,12 @@ Five content features ran in parallel, one subagent each, each owning one file i
   increment. Real title, real exclusions, real seven-feature split, real iteration tick
   `7pv`. The self-reference lands on slide 13 and again on slide 15, where the slide
   names the file it came from.
+- **Coherence** (all pages) — the pass that made five parallel files read as one deck.
+  Found three real defects: `tk` was used from slide 7 and named on slide 17 without
+  ever being introduced; slide 16 repeated slide 8's payoff instead of adding to it; one
+  bullet ran 13 words against a 12-word cap. Terminology was already clean across all
+  five files, which the per-feature style contract deserves the credit for.
+
 - **Setup** (slides 17-19) — the close. Disk layout, `devmeta.md` config, and an install
   block whose every command was checked against the live URLs and against this repo
   before it shipped.
