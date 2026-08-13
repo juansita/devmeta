@@ -1,0 +1,19 @@
+{
+  "id": "hsf",
+  "title": "Add reveals to slides 2-8",
+  "description": "## Objective\nClick-through reveals on slides 2-8. Motion only — do not rewrite prose.\n\n## Spec Reference\n`.devmeta/projects/2026-08-13-motion-model/2026-08-13-motion-model-spec.md`\n\n## Scope\n**Files:** `slides/pages/01-problem.md`, `slides/pages/02-model.md`\n\n## Implementation\n1. Read the Motion contract in the iteration plan.\n2. Wrap bullet lists in \u003cv-clicks\u003e. Do not annotate bullets individually.\n3. Judge which slides need it. Over-animation is a defect; leaving a slide alone is a valid decision.\n4. Record which slides you animated, which you left alone, and the click-step count per slide.\n\n## Tests\nRun: `cd slides \u0026\u0026 npm run slides` (must report 19) and build to your OWN --out dir.\nDo NOT run npm run build — two other workers are running.",
+  "status": "closed",
+  "priority": 2,
+  "type": "task",
+  "owner": "k.joanesarson@gmail.com",
+  "blocked_by": [
+    "pze"
+  ],
+  "parent": "38s",
+  "acceptance_criteria": "count stays 19; own build exits 0; decisions recorded",
+  "created_by": "k.joanesarson@gmail.com",
+  "created_at": "2026-08-13T19:52:52.11968Z",
+  "updated_at": "2026-08-13T19:57:51.387767Z",
+  "closed_at": "2026-08-13T19:57:51.387767Z",
+  "closed_reason": "5 of 7 slides animated, 28 click steps; slides 4 and 6 deliberately static, both recorded"
+}

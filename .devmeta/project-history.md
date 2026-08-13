@@ -2,6 +2,69 @@
 
 Narrative record of what was built, newest first.
 
+## 2026-08-13 — Increment 01-zmf, iteration 01.3, wave 3
+
+The last feature of the last iteration. Two jobs: build the overflow check, and judge the
+deck as a whole.
+
+`npm run layout` renders all 19 slides at 1280×720 and compares each slide's content box
+against its frame, at **every click state** rather than just the first — a deck can fit at
+click 0 and overflow at click 3 if it uses `v-click.hide`. It reports all 19 fitting, with
+slide 4 at +1px, exactly the headroom the theme feature measured before any motion was
+added. Then it was negative-tested: fourteen bullets pasted onto slide 19 left the build
+at exit 0 and took the check to exit 1 at +293px.
+
+The balance pass changed nothing, and that was the right outcome. The temptation in a
+review is to make an edit to justify the review. Three motion features had each recorded
+why they left particular slides static, and the measurements confirmed their reports
+exactly — the five slides they described as static report exactly one click state from the
+outside. Slides 5, 7 and 8 all carry six-step builds, which would have been three
+near-identical animations in a row; the motion-model worker had already broken that run by
+leaving slide 6 alone. Undoing any of it would have recreated the monotony they avoided.
+
+All nine increment exit criteria were then confirmed with evidence rather than assertion.
+The concept checklist was checked by parsing all 19 slides rather than reading them, which
+is deliberate: that is the criterion that regressed silently in 01.2 when slide 4's bullets
+were deleted, and it does not get an eyeball again.
+
+## 2026-08-13 — Increment 01-zmf, iteration 01.3, wave 2
+
+Three motion features in parallel, one per pair of page files. 13 of 19 slides carry
+reveals, 66 click steps in total.
+
+What stands out is what the workers **declined** to animate, and that each of them said
+why. Slide 4 was left completely static: it has no bullets to wrap and 1px of headroom,
+so the only way to step it would be editing the Mermaid graph, which the motion contract
+forbids. Slides 10 and 14 were left static because the diagram is the payload and the
+bullets around it are a single thought. Slide 6 was left static on purely editorial
+grounds — stepping a five-rule checklist turns it into false suspense, and it gives the
+four consecutive definition slides a static beat. The title slide was left static because
+stepping it delays the deck's own name. Every one of those was recorded as a deliberate
+decision so the layout pass cannot undo them by accident.
+
+The technical finding that made animating tight slides safe: Slidev's default hidden
+state is opacity-based, so a hidden bullet keeps its box and the layout is byte-identical
+at every click index. A slide that fit before fits at every step. That does **not** hold
+for `v-click.hide`, which removes the box — worth knowing before anyone animates a
+0px-headroom slide with it.
+
+Two workers verified click wiring headlessly rather than inferring it from a green build,
+and one negative-tested its own overflow measurement by pasting eight paragraphs onto
+slide 19: the build stayed green and the measurement went red at 111px. The habit has
+stuck without being asked for each time.
+
+## 2026-08-13 — Increment 01-zmf, iteration 01.3, Feature Theme
+
+Switched the deck from the stock `default` theme to `seriph` and set a deck-wide
+`slide-left` transition. Serif titles, plain body — the right register for a technical
+talk, and it needed no slide rewrites.
+
+The measurement that matters for the rest of the iteration: rendered headlessly at
+1280×720, slide 4 has **1px of vertical headroom** and slides 17 and 19 have exactly 0px
+of overflow. Slide 4 is heading-plus-diagram with no bullets because its bullets caused an
+overflow in 01.2, and under the new theme it is still right at the edge. Anything added
+there will break it.
+
 ## 2026-08-13 — Iteration 01.2 complete (I&A cycle 01.2R)
 
 The diagrams landed, but the story of this iteration is that the way it planned to check

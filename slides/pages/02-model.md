@@ -18,12 +18,16 @@ graph TD
 
 ## Increment
 
+<v-clicks>
+
 - A major scope of work, named up front.
 - Example: "Document management + audit export".
 - Contains several iterations, each planned when its turn comes.
 - Scope never shrinks. Only you can cut it.
 - `/devmeta:go` drives one increment, then stops and waits.
 - Its end is your decision point: what next?
+
+</v-clicks>
 
 ---
 
@@ -39,6 +43,8 @@ graph TD
 
 ## Feature
 
+<v-clicks>
+
 - The unit of parallel execution, and the unit of context.
 - One subagent runs one feature, start to finish.
 - Tasks run in order inside a feature: one step, one commit.
@@ -46,9 +52,13 @@ graph TD
 - Planning's real job: find boundaries that maximize independence.
 - `tk`, the tracker holding this structure, calls a feature an epic.
 
+</v-clicks>
+
 ---
 
 ## The I&A cycle
+
+<v-clicks>
 
 - Inspect & Adapt. Runs after every iteration, on the base branch.
 - Code review, docs audit, gap check against scope.
@@ -56,3 +66,5 @@ graph TD
 - Writes learnings to `.devmeta/lessons-learned.md` and `.devmeta/project-history.md`.
 - Its last task is real work: planning iteration N+1.
 - The payoff: iteration N+1 is easier than iteration N.
+
+</v-clicks>

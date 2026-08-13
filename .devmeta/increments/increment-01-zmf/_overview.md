@@ -121,15 +121,35 @@ that worked in 01.1. `CLAUDE.md` is a fourth, independent file.
 
 ## Exit Criteria
 
-- [ ] `cd slides && npm run build` exits 0
-- [ ] Deck contains between 15 and 20 slides
-- [ ] Every concept in `README.md` appears on at least one slide: increment, iteration, feature, task, I&A cycle, the three user commands, the four internal commands, `.devmeta/` layout, `devmeta.md` config, tk's role
-- [ ] At least 3 Mermaid diagrams render without errors
-- [ ] Deck frontmatter names a theme other than `default`
-- [ ] At least 5 slides use click-through reveals
-- [ ] No slide overflows the frame at 16:9
-- [ ] All tests pass
-- [ ] Living docs updated
+- [x] `cd slides && npm run build` exits 0 — **exit 0**
+- [x] Deck contains between 15 and 20 slides — **19**, `npm run slides`
+- [x] Every concept in `README.md` appears on at least one slide — **all 15 present**, see the table below
+- [x] At least 3 Mermaid diagrams render without errors — **3**, `npm run diagrams` exit 0, live SVG read from each shadow root
+- [x] Deck frontmatter names a theme other than `default` — **`seriph`**
+- [x] At least 5 slides use click-through reveals — **13** (slides 2, 3, 5, 7, 8, 9, 11, 12, 15, 16, 17, 18, 19)
+- [x] No slide overflows the frame at 16:9 — **`npm run layout` exit 0**, all 19 fit at every click state, worst is slide 4 at +1px
+- [x] All tests pass — build, slides, diagrams and layout all exit 0
+- [x] Living docs updated — `project-history.md`, `lessons-learned.md`, three I&A reports, per-feature context logs, and a project `CLAUDE.md`
+
+### Concept coverage
+
+| Concept | Slides |
+|---------|--------|
+| increment | 3, 4, 5, 6, 9, 10 |
+| iteration | 4, 5, 6, 8, 10, 11 |
+| feature | 4, 7, 10, 11, 14, 15 |
+| task | 4, 6, 7, 8, 11, 14 |
+| I&A cycle | 6, 8, 11, 14, 16, 17 |
+| `tk`'s role | 7 |
+| `/devmeta:discuss-project` | 9 |
+| `/devmeta:start-increment-spec` | 3, 9, 13, 19 |
+| `/devmeta:go` | 3, 5, 9, 10, 11, 12 |
+| `/devmeta:plan-iteration` | 11, 12 |
+| `/devmeta:run` | 11, 12 |
+| `/devmeta:reflect` | 11, 12 |
+| `/devmeta:status` | 11, 12 |
+| `.devmeta/` layout | 3, 8, 17, 18 |
+| `devmeta.md` config | 17, 18 |
 
 ---
 

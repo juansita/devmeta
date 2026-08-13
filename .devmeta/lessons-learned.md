@@ -49,6 +49,14 @@ Accumulated learnings. Each I&A cycle adds to this file.
   90-115s wall clock, all five landing inside two minutes. Sequential would have been
   one context carrying all five sections. The split bought both wall-clock and context
   headroom, and cost one extra wave for coherence.
+- **`gh pr create` targets the upstream repo in a fork, not your own.** The first
+  attempt failed with "No commits between…" because it aimed at `mkelk/devmeta`. Always
+  pass `--repo juansita/devmeta` and a `--head juansita:<branch>` in this repo.
+- **Deviations from the standard git model** are recorded in the iteration `status.md`.
+  Five parallel subagents cannot each own a branch in one working tree, and worktrees
+  would not carry `slides/node_modules`. The I&A cycle should rule on whether 01.2 keeps
+  this or moves to worktrees with a symlinked `node_modules`.
+
 ## Iteration 01.2
 
 - **Smoke-test the verification technique, not just the tool.** `src:` imports and
@@ -91,12 +99,23 @@ Accumulated learnings. Each I&A cycle adds to this file.
   command's, so a failing check reads as a pass. Run it bare, check `$?`, then run it
   again for output. First hit in 01.1, hit again in 01.2 — it is now in `CLAUDE.md`.
 
-## Iteration 01.1
+## Iteration 01.3
 
-- **`gh pr create` targets the upstream repo in a fork, not your own.** The first
-  attempt failed with "No commits between…" because it aimed at `mkelk/devmeta`. Always
-  pass `--repo juansita/devmeta` and a `--head juansita:<branch>` in this repo.
-- **Deviations from the standard git model** are recorded in the iteration `status.md`.
-  Five parallel subagents cannot each own a branch in one working tree, and worktrees
-  would not carry `slides/node_modules`. The I&A cycle should rule on whether 01.2 keeps
-  this or moves to worktrees with a symlinked `node_modules`.
+- **Slidev's default reveal costs zero layout headroom.** `.slidev-vclick-hidden` is
+  opacity-based, so a hidden bullet keeps its box and the slide is byte-identical at every
+  click index. That is what made it safe to animate slides measured at 0px of spare room.
+  **`v-click.hide` removes the box** and does not have this property — do not use it on a
+  tight slide.
+- **Not every iteration is a wide fan-out, and planning should say so.** 01.1 and 01.2
+  were wide because every feature owned a file. 01.3 could not be: a theme change is
+  global, and a balance judgement is not a per-file question. The I&A cycle called the
+  shape before planning started, which stopped the pattern being applied out of habit.
+- **A balance pass that changes nothing is a valid outcome.** The temptation is to make a
+  change to justify the pass. Three motion features had each recorded *why* they left
+  slides static; undoing any of it would have recreated the monotony they were avoiding.
+  Measure, judge, record the judgement — do not churn.
+- **Check every click state, not just the base one.** A deck can fit at click 0 and
+  overflow at click 3. `npm run layout` walks all of them.
+- **The click-state URL is `/<n>?clicks=<c>`.** The path form `/<n>/<c>` 404s in a built
+  deck. And DOM queries must be scoped to `.slidev-page-N` — Slidev keeps neighbouring
+  slides in the DOM, so a document-wide query measures the wrong slide.

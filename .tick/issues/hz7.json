@@ -1,0 +1,19 @@
+{
+  "id": "hz7",
+  "title": "Re-ground after Feature Motion setup and title",
+  "description": "## Implementation\n1. Update `.devmeta/project-history.md`.\n2. Update the iteration status.md.\n3. Append click-step counts and deliberate non-decisions to the context log — the layout pass balances the deck and must not undo them by accident.\n\n## Tests\nRun: `cd slides \u0026\u0026 npm run slides`",
+  "status": "closed",
+  "priority": 2,
+  "type": "task",
+  "owner": "k.joanesarson@gmail.com",
+  "blocked_by": [
+    "bhl"
+  ],
+  "parent": "66m",
+  "acceptance_criteria": "count 19",
+  "created_by": "k.joanesarson@gmail.com",
+  "created_at": "2026-08-13T19:52:52.217083Z",
+  "updated_at": "2026-08-13T20:01:43.525001Z",
+  "closed_at": "2026-08-13T20:01:43.525001Z",
+  "closed_reason": "history, status and context log updated"
+}

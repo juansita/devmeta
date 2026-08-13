@@ -1,0 +1,21 @@
+{
+  "id": "nvg",
+  "title": "Build and negative-test the overflow check",
+  "description": "## Objective\nnpm run layout: render every slide, fail on any whose content escapes the frame.\n\n## Spec Reference\n`.devmeta/projects/2026-08-13-layout-overflow/2026-08-13-layout-overflow-spec.md` — Section 1\n\n## Scope\n**Files:** `slides/scripts/verify-layout.mjs` (create), `slides/package.json` (add script)\n\n## Implementation\n1. Copy the patterns from `slides/scripts/verify-diagrams.mjs`: derive from source, no fallback selectors, waitForFunction not sleep, loud failure.\n2. Render every slide at 1280x720, compare content bbox to the frame, exit non-zero listing offenders.\n3. NEGATIVE-TEST IT: force an overflow, confirm build stays 0 and layout goes 1, then revert. Record the result.\n\n## Tests\nRun: `cd slides \u0026\u0026 npm run build \u0026\u0026 npm run slides \u0026\u0026 npm run diagrams \u0026\u0026 cd slides \u0026\u0026 npm run layout`",
+  "status": "closed",
+  "priority": 2,
+  "type": "task",
+  "owner": "k.joanesarson@gmail.com",
+  "blocked_by": [
+    "jaa",
+    "qxx",
+    "hz7"
+  ],
+  "parent": "q43",
+  "acceptance_criteria": "npm run layout exits 0 on the real deck AND was observed exiting 1 on a forced overflow",
+  "created_by": "k.joanesarson@gmail.com",
+  "created_at": "2026-08-13T19:52:52.239251Z",
+  "updated_at": "2026-08-13T20:06:13.812071Z",
+  "closed_at": "2026-08-13T20:06:13.812071Z",
+  "closed_reason": "npm run layout delivered; all 19 slides fit at every click state; negative-tested build-green/check-red"
+}

@@ -6,3 +6,4 @@ node_modules/
 slides/dist/
 .slidev-build/
 slides/.diagram-check/
+slides/.layout-check/

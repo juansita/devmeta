@@ -33,6 +33,8 @@ graph TD
 
 ## Step 3 — features run
 
+<v-clicks>
+
 - Foundation goes first, alone. It splits the deck into six files.
 - Then five features run at once, one subagent each.
 - Every subagent owns one file. This slide came from `pages/04-example.md`.
@@ -40,9 +42,13 @@ graph TD
 - Features hand off through `context-log.md`, never through the orchestrator.
 - Coherence runs last and alone. One PR for the whole iteration.
 
+</v-clicks>
+
 ---
 
 ## Step 4 — merge, reflect, repeat
+
+<v-clicks>
 
 - The PR merges into the base branch before anything else happens.
 - The I&A cycle reviews the code, audits docs, reassesses the plan.
@@ -50,3 +56,5 @@ graph TD
 - Its last task is real work: planning iteration 01.2, the diagrams.
 - No handoff gap, so `/devmeta:go` rolls straight into the next iteration.
 - When 01.3 closes, the increment closes and `/devmeta:go` hands back.
+
+</v-clicks>

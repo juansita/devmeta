@@ -1,0 +1,19 @@
+{
+  "id": "n6m",
+  "title": "Confirm every increment exit criterion",
+  "description": "## Objective\nLast chance to catch a gap before the increment closes.\n\n## Spec Reference\n`.devmeta/projects/2026-08-13-layout-overflow/2026-08-13-layout-overflow-spec.md` — Section 3\n\n## Implementation\nWork `_overview.md` \u003e Exit Criteria top to bottom. Record evidence for each in the context log:\nbuild exits 0; 15-20 slides; all ten concepts present; 3 diagrams render; theme not default; 5+ slides with reveals; no slide overflows at 16:9.\n\n## Tests\nRun: `cd slides \u0026\u0026 npm run build \u0026\u0026 npm run slides \u0026\u0026 npm run diagrams \u0026\u0026 cd slides \u0026\u0026 npm run layout`",
+  "status": "closed",
+  "priority": 2,
+  "type": "task",
+  "owner": "k.joanesarson@gmail.com",
+  "blocked_by": [
+    "wxx"
+  ],
+  "parent": "q43",
+  "acceptance_criteria": "every exit criterion has recorded evidence",
+  "created_by": "k.joanesarson@gmail.com",
+  "created_at": "2026-08-13T19:52:52.274468Z",
+  "updated_at": "2026-08-13T20:09:14.101108Z",
+  "closed_at": "2026-08-13T20:09:14.101108Z",
+  "closed_reason": "all 9 exit criteria verified with recorded evidence; _overview.md checkboxes ticked"
+}

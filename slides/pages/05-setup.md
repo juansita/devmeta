@@ -10,14 +10,20 @@
   projects/               # feature specs and context logs
 ```
 
+<v-clicks>
+
 - `.tick/` sits alongside it, one JSON file per tick.
 - Both are git-tracked, so state branches and merges with your code.
 - `tk init` installs a merge driver, so parallel branches never conflict.
 - Plain Markdown and JSON. You can read all of it yourself.
 
+</v-clicks>
+
 ---
 
 ## Per-project config
+
+<v-clicks>
 
 - Every DevMeta command reads `.devmeta/devmeta.md` before it acts.
 - `## Testing` — the exact commands that prove your work.
@@ -25,6 +31,8 @@
 - `## Additional Rules` — the constraints this project must not break.
 - Without it, DevMeta guesses from `package.json` and skips environment checks.
 - Write it once. It stops the agent guessing how to test you.
+
+</v-clicks>
 
 ---
 
@@ -37,6 +45,8 @@ ln -s "$PWD/devmeta/devmeta" ~/.claude/commands/devmeta
 cd your-project && tk init
 ```
 
+<v-click>
+
 Then, in Claude Code from your project, you run two commands:
 
 ```text
@@ -45,3 +55,5 @@ Then, in Claude Code from your project, you run two commands:
 ```
 
 Scope it once, then let `/devmeta:go` drive.
+
+</v-click>
