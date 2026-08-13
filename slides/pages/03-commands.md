@@ -15,11 +15,13 @@
 - Stops on a genuine external blocker, or when the increment closes.
 - Interrupted? Run it again — it resumes from tick state, no setup.
 
-The loop:
-
-- plan → execute → inspect and adapt → next iteration → close
-
-<!-- DIAGRAM-PLACEHOLDER: the go loop, plan to run to reflect back to plan, exiting when the increment closes -->
+```mermaid
+graph LR
+  P[Plan iteration] --> E[Execute features]
+  E --> R[Inspect and adapt]
+  R -- next iteration --> P
+  R -- increment closes --> S[Stop]
+```
 
 ---
 

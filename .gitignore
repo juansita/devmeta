@@ -5,3 +5,4 @@ devmeta.zip
 node_modules/
 slides/dist/
 .slidev-build/
+slides/.diagram-check/

@@ -18,14 +18,16 @@
 - It cuts the base branch, checks the environment, then plans iteration 01.1.
 - Features get cut so no two of them touch one file.
 
-```text
-Foundation → Problem, Model, Commands, Example, Setup → Coherence
+```mermaid
+graph TD
+  I["Iteration 01.1"]
+  I --> F1["Feature: Foundation"]
+  I --> F2["Feature: Example"]
+  I --> P["Task: create PR"]
+  I --> R["Task: I&A cycle"]
+  F2 --> T1["Task: write the slides"]
+  F2 --> T2["Task: re-ground"]
 ```
-
-- The iteration tick `7pv` holds one feature tick per feature.
-- Plus tasks for the PR, the merge, and the I&A cycle.
-
-<!-- DIAGRAM-PLACEHOLDER: tick tree for one iteration, iteration epic containing feature epics containing tasks, plus the PR and I&A tasks -->
 
 ---
 

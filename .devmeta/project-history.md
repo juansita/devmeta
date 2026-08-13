@@ -2,6 +2,37 @@
 
 Narrative record of what was built, newest first.
 
+## 2026-08-13 — Increment 01-zmf, iteration 01.2, wave 1
+
+Four features in parallel: three Mermaid diagrams and the project `CLAUDE.md`.
+
+- **Hierarchy diagram** (slide 4) — nested subgraphs, no edges at all, so containment is
+  carried visually rather than implied by arrows. Seven nodes. The bullets had to go
+  entirely: a three-deep `graph TD` needs the whole slide body, and keeping them
+  overflowed the frame and clipped `Iteration 2`. The Mermaid contract's "the diagram
+  replaces them, it does not join them" turned out to be a layout constraint, not just an
+  editorial preference.
+- **Loop diagram** (slide 10) — four nodes, `graph LR`, with both edges out of "Inspect
+  and adapt" labelled so the back-edge and the stopping condition are explicit.
+- **Tick tree diagram** (slide 14) — seven nodes, trimmed from the real iteration 01.1
+  tree. The PR and I&A tasks sit on the features' row, which is the structural point
+  people get wrong.
+- **Project `CLAUDE.md`** — 58 lines, every claim checked against the machine before
+  writing. Leads with the symlink hazard.
+
+The iteration's real discovery was that **the planned way of verifying a diagram did not
+work.** Two workers independently proved that grepping the built bundle cannot confirm a
+Mermaid render, because Slidev lz-string-compresses the source into a `code-lz` prop, and
+that the rendered SVG lives inside the component's shadow root where
+`querySelectorAll('svg')` finds nothing even on success. Both switched to headless
+`playwright-chromium` reading through `shadowRoot`, and both reported the correction
+rather than quietly passing. The verify spec was rewritten mid-iteration to use the
+method that works.
+
+One regression came out of it: removing slide 4's bullets removed the deck's only
+definition of "Task", which is on the increment's concept checklist. Caught by the worker
+that caused it, flagged rather than papered over, and handed to the verification wave.
+
 ## 2026-08-13 — Iteration 01.1 complete (I&A cycle 01.1R)
 
 The content spine landed in a single session. Thirteen commits, seven features, PR #1
