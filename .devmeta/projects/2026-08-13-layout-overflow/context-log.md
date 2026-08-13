@@ -13,6 +13,32 @@
 
 ---
 
+## Increment exit criteria — final confirmation
+
+Every criterion in `_overview.md` executed, with evidence. Recorded there as checked, and
+here as the evidence trail.
+
+| # | Criterion | Result |
+|:-:|-----------|--------|
+| 1 | build exits 0 | `npm run build` → **0** |
+| 2 | 15-20 slides | `npm run slides` → **19** |
+| 3 | every concept on a slide | **15 of 15 present** — coverage table in `_overview.md` |
+| 4 | 3+ diagrams render | `npm run diagrams` → **0**, live SVG read from each shadow root |
+| 5 | theme is not `default` | **`seriph`** |
+| 6 | 5+ slides with reveals | **13** |
+| 7 | no slide overflows at 16:9 | `npm run layout` → **0**, all 19 at every click state |
+| 8 | all tests pass | four checks, all exit 0 |
+| 9 | living docs updated | history, lessons, 3 I&A reports, context logs, `CLAUDE.md` |
+
+**Criterion 3 was checked by parsing, not by reading.** Each concept was matched against
+every slide's source, and the slide numbers recorded. That criterion is the one that
+regressed silently in 01.2 when slide 4's bullets were removed, so it does not get an
+eyeball.
+
+**Criterion 6 exceeds its floor by a wide margin** (13 against a required 5). That is not
+padding: it is the result of three features judging their own slides rather than animating
+to a quota, and six slides being deliberately left static.
+
 ## Motion balance — reviewed, no changes made
 
 Three features animated independently. Measured across the whole deck:
