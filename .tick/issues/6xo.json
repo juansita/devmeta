@@ -2,7 +2,7 @@
   "id": "6xo",
   "title": "Re-ground after Feature Setup",
   "description": "## Objective\nRecord this feature's output before the coherence pass reads it.\n\n## Implementation\n1. Update `.devmeta/project-history.md`.\n2. Update the iteration status.md feature table.\n3. Append decisions and wording choices to `.devmeta/projects/2026-08-13-deck-setup/context-log.md` — the coherence pass reads these.\n4. Capture any lesson in `.devmeta/lessons-learned.md`.\n\n## Tests\nRun: `cd slides \u0026\u0026 npm run slides`",
-  "status": "open",
+  "status": "closed",
   "priority": 2,
   "type": "task",
   "owner": "k.joanesarson@gmail.com",
@@ -13,5 +13,7 @@
   "acceptance_criteria": "cd slides \u0026\u0026 npm run slides exits 0",
   "created_by": "k.joanesarson@gmail.com",
   "created_at": "2026-08-13T19:19:09.041299Z",
-  "updated_at": "2026-08-13T19:19:57.813812Z"
+  "updated_at": "2026-08-13T19:25:37.830234Z",
+  "closed_at": "2026-08-13T19:25:37.830234Z",
+  "closed_reason": "history, status and lessons updated"
 }
