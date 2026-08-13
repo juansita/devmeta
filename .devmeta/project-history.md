@@ -13,6 +13,15 @@ Five content features ran in parallel, one subagent each, each owning one file i
   DevMeta as "a slash-command framework for Claude Code", and deliberately introduces no
   concept nouns, so slide 4 can present the hierarchy cold.
 
+- **Model** (slides 4-8) — the conceptual core. Slide 4 gives the whole hierarchy with
+  a "produces" clause per unit; slides 5-8 take increment, iteration, feature and I&A
+  cycle one at a time. Sets the vocabulary the rest of the deck inherits, and confines
+  the word "epic" to slide 7 where `tk`'s naming is explained.
+- **Commands** (slides 9-12) — the practical half. The three commands you run, what
+  `/devmeta:go` does, the four it calls for you, and why calling those yourself breaks
+  the loop. Every claim traced back to `README.md`, `devmeta/go.md`, or a command file's
+  frontmatter.
+
 ## 2026-08-13 — Increment 01-zmf, iteration 01.1, Feature Foundation
 
 Split the deck across files so five content features can run in parallel.

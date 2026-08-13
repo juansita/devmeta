@@ -22,6 +22,13 @@ Accumulated learnings. Each I&A cycle adds to this file.
 - **Give the iteration a machine-checkable acceptance test.** "15-20 slides" was an exit
   criterion no one could check by eye across six files. `npm run slides` turned it into
   an exit code, and every task now runs it.
+- **`npm run slides` loses its exit code when piped to `tail` or `head`.** Run it bare
+  and check `$?`, then run it again for the output if you need to see it. Found by the
+  Commands worker; it applies to every `npm run` check in this repo.
+- **Name the boundary between adjacent features in both specs.** Commands and Example
+  cover the same commands from different angles. Each spec said explicitly what the
+  other owned, and neither duplicated the other. Cheap to write, and it removes the
+  most likely coherence defect before it happens.
 - **Deviations from the standard git model** are recorded in the iteration `status.md`.
   Five parallel subagents cannot each own a branch in one working tree, and worktrees
   would not carry `slides/node_modules`. The I&A cycle should rule on whether 01.2 keeps
