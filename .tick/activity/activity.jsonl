@@ -135,3 +135,32 @@
 {"ts":"2026-08-13T19:47:01.586723Z","tick":"fcq","action":"close","actor":"k.joanesarson@gmail.com","epic":"7uy","data":{"reason":"metadata committed to base branch; working tree clean","title":"Commit metadata to base branch"}}
 {"ts":"2026-08-13T19:47:01.606084Z","tick":"ytm","action":"close","actor":"k.joanesarson@gmail.com","epic":"7uy","data":{"reason":"iteration 01.2 closing on base branch","title":"Kick off I\u0026A Cycle 01.2R"}}
 {"ts":"2026-08-13T19:47:01.626016Z","tick":"7uy","action":"close","actor":"k.joanesarson@gmail.com","data":{"reason":"three diagrams rendering, CLAUDE.md added, render check promoted to a command; PR #2 merged","title":"Iteration 01.2: Diagrams"}}
+{"ts":"2026-08-13T19:50:24.068943Z","tick":"lz9","action":"close","actor":"k.joanesarson@gmail.com","epic":"nbm","data":{"reason":"I\u0026A report written; all 9 scope items verified closed; 3 drift instances fixed and negative-tested","title":"Run /devmeta:reflect 01.2"}}
+{"ts":"2026-08-13T19:52:21.924008Z","tick":"0la","action":"create","actor":"k.joanesarson@gmail.com","epic":"etg","data":{"priority":1,"title":"01.3: Theme","type":"epic"}}
+{"ts":"2026-08-13T19:52:21.943953Z","tick":"38s","action":"create","actor":"k.joanesarson@gmail.com","epic":"etg","data":{"priority":2,"title":"01.3: Motion — problem and model","type":"epic"}}
+{"ts":"2026-08-13T19:52:21.961939Z","tick":"iul","action":"create","actor":"k.joanesarson@gmail.com","epic":"etg","data":{"priority":2,"title":"01.3: Motion — commands and example","type":"epic"}}
+{"ts":"2026-08-13T19:52:21.979533Z","tick":"66m","action":"create","actor":"k.joanesarson@gmail.com","epic":"etg","data":{"priority":2,"title":"01.3: Motion — setup and title","type":"epic"}}
+{"ts":"2026-08-13T19:52:21.996486Z","tick":"q43","action":"create","actor":"k.joanesarson@gmail.com","epic":"etg","data":{"priority":1,"title":"01.3: Layout and overflow","type":"epic"}}
+{"ts":"2026-08-13T19:52:52.077865Z","tick":"911","action":"create","actor":"k.joanesarson@gmail.com","epic":"0la","data":{"priority":2,"title":"Pick, install and set the theme","type":"task"}}
+{"ts":"2026-08-13T19:52:52.096216Z","tick":"pze","action":"create","actor":"k.joanesarson@gmail.com","epic":"0la","data":{"priority":2,"title":"Re-ground after Feature Theme","type":"task"}}
+{"ts":"2026-08-13T19:52:52.119919Z","tick":"hsf","action":"create","actor":"k.joanesarson@gmail.com","epic":"38s","data":{"priority":2,"title":"Add reveals to slides 2-8","type":"task"}}
+{"ts":"2026-08-13T19:52:52.136607Z","tick":"jaa","action":"create","actor":"k.joanesarson@gmail.com","epic":"38s","data":{"priority":2,"title":"Re-ground after Feature Motion problem and model","type":"task"}}
+{"ts":"2026-08-13T19:52:52.160227Z","tick":"5xi","action":"create","actor":"k.joanesarson@gmail.com","epic":"iul","data":{"priority":2,"title":"Add reveals to slides 9-16","type":"task"}}
+{"ts":"2026-08-13T19:52:52.17819Z","tick":"qxx","action":"create","actor":"k.joanesarson@gmail.com","epic":"iul","data":{"priority":2,"title":"Re-ground after Feature Motion commands and example","type":"task"}}
+{"ts":"2026-08-13T19:52:52.200585Z","tick":"bhl","action":"create","actor":"k.joanesarson@gmail.com","epic":"66m","data":{"priority":2,"title":"Add reveals to slides 17-19 and the title slide","type":"task"}}
+{"ts":"2026-08-13T19:52:52.21729Z","tick":"hz7","action":"create","actor":"k.joanesarson@gmail.com","epic":"66m","data":{"priority":2,"title":"Re-ground after Feature Motion setup and title","type":"task"}}
+{"ts":"2026-08-13T19:52:52.239482Z","tick":"nvg","action":"create","actor":"k.joanesarson@gmail.com","epic":"q43","data":{"priority":2,"title":"Build and negative-test the overflow check","type":"task"}}
+{"ts":"2026-08-13T19:52:52.256777Z","tick":"wxx","action":"create","actor":"k.joanesarson@gmail.com","epic":"q43","data":{"priority":2,"title":"Balance the motion across the deck","type":"task"}}
+{"ts":"2026-08-13T19:52:52.274693Z","tick":"n6m","action":"create","actor":"k.joanesarson@gmail.com","epic":"q43","data":{"priority":2,"title":"Confirm every increment exit criterion","type":"task"}}
+{"ts":"2026-08-13T19:52:52.292008Z","tick":"cab","action":"create","actor":"k.joanesarson@gmail.com","epic":"q43","data":{"priority":2,"title":"Re-ground after Feature Layout and overflow","type":"task"}}
+{"ts":"2026-08-13T19:53:08.774283Z","tick":"3yi","action":"create","actor":"k.joanesarson@gmail.com","epic":"etg","data":{"priority":2,"title":"Create PR for iteration 01.3","type":"task"}}
+{"ts":"2026-08-13T19:53:08.794077Z","tick":"toe","action":"create","actor":"k.joanesarson@gmail.com","epic":"etg","data":{"priority":2,"title":"Merge PR and return to base branch","type":"task"}}
+{"ts":"2026-08-13T19:53:08.811083Z","tick":"2x1","action":"create","actor":"k.joanesarson@gmail.com","epic":"etg","data":{"priority":2,"title":"Commit metadata to base branch","type":"task"}}
+{"ts":"2026-08-13T19:53:08.828526Z","tick":"3tv","action":"create","actor":"k.joanesarson@gmail.com","epic":"etg","data":{"priority":2,"title":"Kick off I\u0026A Cycle 01.3R","type":"task"}}
+{"ts":"2026-08-13T19:53:08.866214Z","tick":"3yi","action":"block","actor":"k.joanesarson@gmail.com","epic":"etg","data":{"blockers":["cab"],"title":"Create PR for iteration 01.3"}}
+{"ts":"2026-08-13T19:53:08.883861Z","tick":"e7z","action":"create","actor":"k.joanesarson@gmail.com","epic":"j48","data":{"priority":2,"title":"Run /devmeta:reflect 01.3","type":"task"}}
+{"ts":"2026-08-13T19:53:08.900518Z","tick":"ufq","action":"create","actor":"k.joanesarson@gmail.com","epic":"j48","data":{"priority":2,"title":"Close Increment 01-zmf","type":"task"}}
+{"ts":"2026-08-13T19:53:17.195079Z","tick":"hsf","action":"block","actor":"k.joanesarson@gmail.com","epic":"38s","data":{"blockers":["pze"],"title":"Add reveals to slides 2-8"}}
+{"ts":"2026-08-13T19:53:17.251308Z","tick":"5xi","action":"block","actor":"k.joanesarson@gmail.com","epic":"iul","data":{"blockers":["pze"],"title":"Add reveals to slides 9-16"}}
+{"ts":"2026-08-13T19:53:17.305843Z","tick":"bhl","action":"block","actor":"k.joanesarson@gmail.com","epic":"66m","data":{"blockers":["pze"],"title":"Add reveals to slides 17-19 and the title slide"}}
+{"ts":"2026-08-13T19:53:20.637191Z","tick":"nvg","action":"block","actor":"k.joanesarson@gmail.com","epic":"q43","data":{"blockers":["jaa","qxx","hz7"],"title":"Build and negative-test the overflow check"}}
