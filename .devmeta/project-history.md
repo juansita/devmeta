@@ -2,6 +2,32 @@
 
 Narrative record of what was built, newest first.
 
+## 2026-08-13 — Increment 01-zmf, iteration 01.3, wave 2
+
+Three motion features in parallel, one per pair of page files. 13 of 19 slides carry
+reveals, 66 click steps in total.
+
+What stands out is what the workers **declined** to animate, and that each of them said
+why. Slide 4 was left completely static: it has no bullets to wrap and 1px of headroom,
+so the only way to step it would be editing the Mermaid graph, which the motion contract
+forbids. Slides 10 and 14 were left static because the diagram is the payload and the
+bullets around it are a single thought. Slide 6 was left static on purely editorial
+grounds — stepping a five-rule checklist turns it into false suspense, and it gives the
+four consecutive definition slides a static beat. The title slide was left static because
+stepping it delays the deck's own name. Every one of those was recorded as a deliberate
+decision so the layout pass cannot undo them by accident.
+
+The technical finding that made animating tight slides safe: Slidev's default hidden
+state is opacity-based, so a hidden bullet keeps its box and the layout is byte-identical
+at every click index. A slide that fit before fits at every step. That does **not** hold
+for `v-click.hide`, which removes the box — worth knowing before anyone animates a
+0px-headroom slide with it.
+
+Two workers verified click wiring headlessly rather than inferring it from a green build,
+and one negative-tested its own overflow measurement by pasting eight paragraphs onto
+slide 19: the build stayed green and the measurement went red at 111px. The habit has
+stuck without being asked for each time.
+
 ## 2026-08-13 — Increment 01-zmf, iteration 01.3, Feature Theme
 
 Switched the deck from the stock `default` theme to `seriph` and set a deck-wide

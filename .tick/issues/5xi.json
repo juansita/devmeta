@@ -2,7 +2,7 @@
   "id": "5xi",
   "title": "Add reveals to slides 9-16",
   "description": "## Objective\nClick-through reveals on slides 9-16. Motion only — do not rewrite prose.\n\n## Spec Reference\n`.devmeta/projects/2026-08-13-motion-commands/2026-08-13-motion-commands-spec.md`\n\n## Scope\n**Files:** `slides/pages/03-commands.md`, `slides/pages/04-example.md`\n\n## Implementation\n1. Read the Motion contract in the iteration plan.\n2. Wrap bullet lists in \u003cv-clicks\u003e. Do not annotate bullets individually.\n3. Judge which slides need it. Over-animation is a defect; leaving a slide alone is a valid decision.\n4. Record which slides you animated, which you left alone, and the click-step count per slide.\n\n## Tests\nRun: `cd slides \u0026\u0026 npm run slides` (must report 19) and build to your OWN --out dir.\nDo NOT run npm run build — two other workers are running.",
-  "status": "open",
+  "status": "closed",
   "priority": 2,
   "type": "task",
   "owner": "k.joanesarson@gmail.com",
@@ -13,5 +13,7 @@
   "acceptance_criteria": "count stays 19; own build exits 0; decisions recorded",
   "created_by": "k.joanesarson@gmail.com",
   "created_at": "2026-08-13T19:52:52.159979Z",
-  "updated_at": "2026-08-13T19:53:17.251047Z"
+  "updated_at": "2026-08-13T20:00:12.235298Z",
+  "closed_at": "2026-08-13T20:00:12.235298Z",
+  "closed_reason": "5 of 8 slides animated, 27 click steps; click wiring and overflow both verified headlessly"
 }

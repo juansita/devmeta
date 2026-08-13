@@ -14,9 +14,9 @@
 | Feature | ID | Tasks | Status | Depends On |
 |---------|----|-------|--------|-----------|
 | Theme | `0la` | 2 | **Complete** | — |
-| Motion — problem and model | `38s` | 2 | Not started | Theme |
-| Motion — commands and example | `iul` | 2 | Not started | Theme |
-| Motion — setup and title | `66m` | 2 | Not started | Theme |
+| Motion — problem and model | `38s` | 2 | **Complete** | Theme |
+| Motion — commands and example | `iul` | 2 | **Complete** | Theme |
+| Motion — setup and title | `66m` | 2 | **Complete** | Theme |
 | Layout and overflow | `q43` | 4 | Not started | all three motion features |
 
 ## Feature Independence Map
