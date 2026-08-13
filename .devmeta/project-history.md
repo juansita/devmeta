@@ -2,6 +2,51 @@
 
 Narrative record of what was built, newest first.
 
+## 2026-08-13 — Iteration 01.1 complete (I&A cycle 01.1R)
+
+The content spine landed in a single session. Thirteen commits, seven features, PR #1
+merged into `2026-08-13-devmeta-deck`.
+
+The decision that shaped everything was made before any content was written. The
+deliverable was one Markdown file, which meant parallelism of one. Slidev's `src:`
+imports turned it into six files, and the whole feature graph followed from that: one
+foundation feature, five content features that could not collide because each owned a
+different file, and one coherence pass that ran alone because it was the only thing
+allowed to touch them all. The mechanism was smoke-tested on a throwaway three-file deck
+before the plan was built on it — two minutes that would have invalidated everything if
+they had gone the other way.
+
+The five parallel workers cost roughly 45-50k tokens each and finished within two
+minutes of one another. Every one of them stayed inside its file, ran the checks it was
+told to run, and appended honest notes to its context log. The Setup worker fetched the
+ticks install URL and confirmed the symlink and the git merge driver on disk before
+writing a single install line, because its spec said not to ship a command it had not
+checked. The Example worker found that its slide described `run.md`'s commit-per-task
+model while this very iteration was deviating from it, taught the model anyway, and
+flagged the mismatch rather than quietly choosing. That is the behaviour the harness
+wants, and it happened without being asked for specifically.
+
+What the style contract could not do was see the deck whole. It produced zero
+terminology drift across five independent writers — no forbidden vocabulary, consistent
+command formatting, the word "epic" confined to the one slide that explains it. But
+`tk` was used on slide 7 and named on slide 17 without ever being introduced, and slides
+8 and 16 both claimed the same payoff. Neither defect is visible from inside a single
+feature. The coherence wave earned its place.
+
+Where the framework fought the machine: `/devmeta:run` calls for one branch per feature,
+and five subagents cannot each check out a branch in one working tree. Git worktrees
+were the obvious answer and would have failed, because `slides/node_modules` is not
+tracked and the build would have died inside them. The iteration used one work branch
+with the coordinator committing on each worker's behalf, and recorded the deviation
+rather than hiding it. `gh pr create` also defaulted to the upstream repo rather than the
+fork, which is worth knowing before it opens a pull request against someone else's
+project.
+
+The self-learning system worked in the direction it was supposed to. Every lesson in
+`lessons-learned.md` came out of something that actually happened, and iteration 01.2
+inherits a working slide counter, a proven file split, and a written record of what the
+parallel model can and cannot do.
+
 ## 2026-08-13 — Increment 01-zmf, iteration 01.1, content features
 
 Five content features ran in parallel, one subagent each, each owning one file in

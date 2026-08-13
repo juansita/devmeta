@@ -1,7 +1,8 @@
 # Iteration 01.1 Status
 
 **Started:** 2026-08-13
-**Status:** In Progress
+**Completed:** 2026-08-13
+**Status:** Complete
 **Iteration tick:** `7pv`
 **Base branch:** `2026-08-13-devmeta-deck`
 **Work branch:** `feature/2026-08-13-deck-content-spine`
@@ -45,6 +46,31 @@ Recorded here and in `.devmeta/lessons-learned.md` for the I&A cycle to rule on.
    concurrent Vite builds never write the same `slides/dist`.
 4. **Foundation runs inline, not in a subagent.** Wave 1 holds one feature and blocks
    everything else, so there is no parallelism to gain.
+
+## Summary
+
+Delivered a 19-slide DevMeta explainer deck, complete in narrative, on the stock theme.
+Split the deck into six files so five content features could be written in parallel, one
+subagent each, then made them read as one deck in a dedicated coherence wave. PR #1
+merged into the base branch.
+
+## Key Learnings
+
+- Splitting the artifact is what unlocks splitting the work. One Markdown file caps
+  parallelism at one; six files made a five-wide wave possible.
+- A written style contract eliminated terminology drift entirely, but could not catch
+  the two defects that needed a whole-deck read: a term used without introduction, and
+  two slides claiming the same payoff.
+- Turning "15-20 slides" into `npm run slides` with an exit code made an exit criterion
+  checkable by every task, instead of by eye at the end.
+
+## Changes to Project Docs
+
+- `.devmeta/lessons-learned.md`: 8 entries added across planning, execution and I&A.
+- `.devmeta/project-history.md`: Foundation, five content features, and the coherence
+  pass recorded.
+- No `CLAUDE.md` or `docs/current/` in this project — nothing to promote there. Noted in
+  the I&A report as a genuine gap for iteration 01.2 to consider.
 
 ## Notes
 

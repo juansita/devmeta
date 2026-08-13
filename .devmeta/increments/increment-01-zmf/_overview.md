@@ -43,8 +43,16 @@
 | # | Title | What Gets Built |
 |:--:|-------|-----------------|
 | 01.1 | Content spine | All 15-20 slides written, narrative complete, stock theme, builds clean |
-| 01.2 | Diagrams | Three Mermaid diagrams replacing the placeholder text slides |
+| 01.2 | Diagrams | Three Mermaid diagrams replacing the placeholder text slides, plus a project `CLAUDE.md` |
 | 01.3 | Theme and motion | Custom theme, click-through reveals, transitions, final polish |
+
+> **Reassessed 2026-08-13 (I&A cycle 01.1R).** Scope and order of 01.2 and 01.3 are
+> unchanged and still correct — diagrams must exist before 01.3 can build them up in
+> steps. One deliverable added to 01.2: a project `CLAUDE.md`. The docs audit found the
+> repo has neither `CLAUDE.md` nor `docs/current/`, so nothing warns a fresh session
+> that `devmeta/` is symlinked to `~/.claude/commands/devmeta` and that editing it
+> changes the live slash commands everywhere. That is a live hazard, it is cheap to
+> close, and 01.2 is the lightest iteration. Scope grew; nothing was cut.
 
 ---
 
@@ -69,15 +77,21 @@
 ### Iteration 01.2 — Diagrams
 
 **Deliverables:**
-- Mermaid diagram: the `go` loop (plan → run → reflect → next iteration → close)
-- Mermaid diagram: increment → iteration → feature → task hierarchy
-- Mermaid diagram: the tick structure for one iteration, including the re-ground and PR tasks
-- Placeholder slides from 01.1 replaced
+- Mermaid diagram: increment → iteration → feature → task hierarchy (slide 4, `pages/02-model.md`)
+- Mermaid diagram: the `go` loop, plan → run → reflect → next iteration → close (slide 10, `pages/03-commands.md`)
+- Mermaid diagram: the tick structure for one iteration, including the re-ground and PR tasks (slide 14, `pages/04-example.md`)
+- All three `DIAGRAM-PLACEHOLDER` comments and their bulleted stand-ins replaced
+- A project `CLAUDE.md` (added by I&A cycle 01.1R — see the note under the iteration map)
 
 **Verify on screen:**
-- `npm run build` exits 0
+- `npm run build` exits 0 and `npm run slides` still reports 19
 - All three diagrams render in the browser with no Mermaid parse errors
 - Each diagram is legible at presentation size — no more than 8 nodes per diagram
+- No `DIAGRAM-PLACEHOLDER` comment remains anywhere in `slides/`
+
+**Note on parallelism:** the three diagrams live in three different page files, so this
+iteration supports a three-wide parallel wave with the same one-file-per-feature rule
+that worked in 01.1. `CLAUDE.md` is a fourth, independent file.
 
 ### Iteration 01.3 — Theme and motion
 

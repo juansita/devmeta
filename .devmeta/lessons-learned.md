@@ -49,6 +49,9 @@ Accumulated learnings. Each I&A cycle adds to this file.
   90-115s wall clock, all five landing inside two minutes. Sequential would have been
   one context carrying all five sections. The split bought both wall-clock and context
   headroom, and cost one extra wave for coherence.
+- **`gh pr create` targets the upstream repo in a fork, not your own.** The first
+  attempt failed with "No commits between…" because it aimed at `mkelk/devmeta`. Always
+  pass `--repo juansita/devmeta` and a `--head juansita:<branch>` in this repo.
 - **Deviations from the standard git model** are recorded in the iteration `status.md`.
   Five parallel subagents cannot each own a branch in one working tree, and worktrees
   would not carry `slides/node_modules`. The I&A cycle should rule on whether 01.2 keeps

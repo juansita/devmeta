@@ -20,7 +20,7 @@ const data = await load({ roots: [root], userRoot: root }, entry)
 const slides = data.slides
 
 const titleOf = (slide) =>
-  slide.title ?? slide.content.trim().split('\n')[0].replace(/^#+\s*/, '') ?? '(untitled)'
+  slide.title || slide.content.trim().split('\n')[0].replace(/^#+\s*/, '') || '(untitled)'
 
 console.log(`slides: ${slides.length}`)
 slides.forEach((slide, i) => {
