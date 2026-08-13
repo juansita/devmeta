@@ -7,7 +7,8 @@
     "build": "slidev build slides.md",
     "export": "slidev export slides.md",
     "slides": "node scripts/count-slides.mjs",
-    "diagrams": "slidev build slides.md --out .diagram-check >/dev/null && node scripts/verify-diagrams.mjs .diagram-check"
+    "diagrams": "slidev build slides.md --out .diagram-check >/dev/null && node scripts/verify-diagrams.mjs .diagram-check",
+    "layout": "slidev build slides.md --out .layout-check >/dev/null && node scripts/verify-layout.mjs .layout-check"
   },
   "devDependencies": {
     "@slidev/cli": "^52.19.0",
