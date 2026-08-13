@@ -1,0 +1,17 @@
+{
+  "id": "u3p",
+  "title": "Plan Iteration 01.2: read scope, create feature tick structure, begin first task",
+  "description": "## Objective\nReal work for iteration 01.2, not a handoff. Diagrams replace the three placeholders.\n\n## Implementation\n1. Read `.devmeta/increments/increment-01-zmf/_overview.md` \u003e Iteration 01.2.\n2. Run `/devmeta:plan-iteration 01.2` — feature specs, context logs, tick structure, status.md.\n3. Close this task and iteration 01.1R, then `tk next` and start executing.\n\n## Tests\n`tk next` returns the first task of iteration 01.2.",
+  "status": "open",
+  "priority": 2,
+  "type": "task",
+  "owner": "k.joanesarson@gmail.com",
+  "blocked_by": [
+    "bwu"
+  ],
+  "parent": "f4a",
+  "acceptance_criteria": "01.2 tick structure exists; tk next returns its first task",
+  "created_by": "k.joanesarson@gmail.com",
+  "created_at": "2026-08-13T19:19:42.131891Z",
+  "updated_at": "2026-08-13T19:19:57.98224Z"
+}

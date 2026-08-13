@@ -1,0 +1,16 @@
+{
+  "id": "vs2",
+  "title": "01.1: Model — increment, iteration, feature, task, I\u0026A",
+  "description": "## Scope\nslides/pages/02-model.md — exactly 5 slides. The core conceptual model.\n\n## Spec\n`.devmeta/projects/2026-08-13-deck-model/2026-08-13-deck-model-spec.md`\n\n## Worker Instructions\n- Complete tasks in order\n- Read the spec and `context-log.md` in your feature directory before starting\n- Read `.devmeta/lessons-learned.md` before starting\n- Read the Style contract in `.devmeta/increments/increment-01-zmf/iterations/iteration-01.1/plan.md`\n- Append learnings to context-log.md when done",
+  "status": "open",
+  "priority": 2,
+  "type": "epic",
+  "owner": "k.joanesarson@gmail.com",
+  "blocked_by": [
+    "glx"
+  ],
+  "parent": "7pv",
+  "created_by": "k.joanesarson@gmail.com",
+  "created_at": "2026-08-13T19:18:30.373635Z",
+  "updated_at": "2026-08-13T19:18:30.373635Z"
+}
