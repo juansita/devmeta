@@ -2,6 +2,31 @@
 
 Narrative record of what was built, newest first.
 
+## 2026-08-13 — Increment 01-zmf, iteration 01.3, wave 3
+
+The last feature of the last iteration. Two jobs: build the overflow check, and judge the
+deck as a whole.
+
+`npm run layout` renders all 19 slides at 1280×720 and compares each slide's content box
+against its frame, at **every click state** rather than just the first — a deck can fit at
+click 0 and overflow at click 3 if it uses `v-click.hide`. It reports all 19 fitting, with
+slide 4 at +1px, exactly the headroom the theme feature measured before any motion was
+added. Then it was negative-tested: fourteen bullets pasted onto slide 19 left the build
+at exit 0 and took the check to exit 1 at +293px.
+
+The balance pass changed nothing, and that was the right outcome. The temptation in a
+review is to make an edit to justify the review. Three motion features had each recorded
+why they left particular slides static, and the measurements confirmed their reports
+exactly — the five slides they described as static report exactly one click state from the
+outside. Slides 5, 7 and 8 all carry six-step builds, which would have been three
+near-identical animations in a row; the motion-model worker had already broken that run by
+leaving slide 6 alone. Undoing any of it would have recreated the monotony they avoided.
+
+All nine increment exit criteria were then confirmed with evidence rather than assertion.
+The concept checklist was checked by parsing all 19 slides rather than reading them, which
+is deliberate: that is the criterion that regressed silently in 01.2 when slide 4's bullets
+were deleted, and it does not get an eyeball again.
+
 ## 2026-08-13 — Increment 01-zmf, iteration 01.3, wave 2
 
 Three motion features in parallel, one per pair of page files. 13 of 19 slides carry

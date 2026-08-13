@@ -1,7 +1,8 @@
 # Iteration 01.3 Status
 
 **Started:** 2026-08-13
-**Status:** In Progress
+**Completed:** 2026-08-13
+**Status:** Complete
 **Iteration tick:** `etg`
 **Base branch:** `2026-08-13-devmeta-deck`
 **Work branch:** `feature/2026-08-13-deck-theme-motion`
@@ -17,7 +18,7 @@
 | Motion — problem and model | `38s` | 2 | **Complete** | Theme |
 | Motion — commands and example | `iul` | 2 | **Complete** | Theme |
 | Motion — setup and title | `66m` | 2 | **Complete** | Theme |
-| Layout and overflow | `q43` | 4 | Not started | all three motion features |
+| Layout and overflow | `q43` | 4 | **Complete** | all three motion features |
 
 ## Feature Independence Map
 
@@ -62,6 +63,29 @@ Scope grew; nothing was cut.
   `verify-diagrams.mjs` that could have passed a missing diagram. No fallbacks.
 - Git model unchanged: one work branch, coordinator commits, workers build to their own
   `--out` directory.
+
+## Summary
+
+Theme, motion, and an automated overflow check. 13 of 19 slides carry click-through
+reveals; 6 are deliberately static, each with a recorded reason. All nine increment exit
+criteria confirmed with evidence.
+
+## Key Learnings
+
+- Reveals cost zero headroom because Slidev's default hidden state is opacity-based — the
+  box is kept and nothing reflows. That is what made it safe to animate slides measured at
+  0px of overflow. It would not hold for `v-click.hide`.
+- The narrow-wide-narrow shape was the right call. A theme change cannot be parallelised
+  and a balance judgement cannot be made per file. Only the motion work divided cleanly.
+- What the workers declined to animate mattered more than what they animated, and every
+  refusal came with a reason recorded before the balance pass could undo it.
+
+## Changes to Project Docs
+
+- `.devmeta/lessons-learned.md`: entries on opacity-based reveals and the narrow-wide-narrow shape
+- `.devmeta/project-history.md`: theme and motion wave narratives
+- `slides/scripts/verify-layout.mjs` and `npm run layout`: new, negative-tested
+- `_overview.md`: all nine exit criteria ticked with evidence, plus a concept coverage table
 
 ## Notes
 
