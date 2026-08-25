@@ -39,6 +39,35 @@ supporting resources) in `docs/thoughts/`.
 
 ## Your Task
 
+### Step 0 (all callers): Ground yourself in a CURRENT tree
+
+**Do this before reading a single project file.** A worktree that has never been
+pulled is the normal case, not the exception.
+
+```bash
+git fetch -q
+git rev-list --left-right --count origin/<default-branch>...HEAD
+```
+
+Detect the default branch — `main` and `master` both occur — with
+`git symbolic-ref refs/remotes/origin/HEAD`. Never assume.
+
+**If the left number is non-zero, you are behind. Stop and say so**, with the
+count, before doing anything else. Offer the fast-forward
+(`git merge --ff-only origin/<default>`); do not research, plan or write on a
+stale tree.
+
+This is not hygiene. A discussion document was once researched on a worktree
+**218 commits behind** and described a hosting provider, a public tunnel and a
+model backend that had all been removed months earlier — every load-bearing fact
+in it was wrong, and it read as confident and specific because the stale tree was
+internally consistent. The project's own `AGENTS.md` already carried the rule
+(*fetch before you judge git state*); the commands did not inherit it, and an
+agent following the command faithfully never ran the fetch.
+
+Also confirm you are in the checkout you think you are: the project may run in
+several worktrees, and at least one is usually stale. `git worktree list`.
+
 ### Step 1: Frame the discussion
 
 From `$ARGUMENTS` (or by asking the user), establish:

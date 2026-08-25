@@ -52,7 +52,7 @@ Read every source of learnings from this iteration:
    Read `.devmeta/lessons-learned.md`
 
 5. **Current troubleshooting.md** (if exists):
-   Read `docs/current/troubleshooting.md`
+   Read `docs/current/troubleshooting.md` if the repo keeps one
 
 ### Step 2: Categorize Learnings
 
@@ -80,7 +80,7 @@ This is the most important step. Read the actual code that was written during th
 
 2. **For each significant file**, ask:
    - Would an experienced developer recognize this as standard, idiomatic code?
-   - Does it follow the patterns in `docs/current/principles-and-choices.md`?
+   - Does it follow the repo's recorded patterns (`docs/current/principles-and-choices.md` if kept, else `AGENTS.md` / `.devmeta/devmeta.md`)?
    - Is there unnecessary complexity that suggests an agent struggled and patched rather than solving properly?
 
 3. **Signs of drift to look for:**
@@ -150,6 +150,17 @@ Look for patterns across the iteration:
 - **Workers consistently confused about X?** → Documentation gap. Fill it in docs/current/.
 - **A principle was violated repeatedly?** → Either the principle is wrong or it's not visible enough.
 - **Workarounds accumulated?** → Code quality drift. Create cleanup tasks.
+
+> **`docs/current/` is optional and often absent.** Several DevMeta commands name
+> it as though it always exists; many repos never adopt it and keep the same
+> knowledge in `AGENTS.md`, `CLAUDE.md`, `.devmeta/devmeta.md`, `.devmeta/lessons-learned.md`
+> or a `docs/` tree of their own. **Read what the repo actually has** — check
+> before citing, and never fail or stall because the path is missing.
+>
+> This matters more than it looks: a harness that instructs an agent to read a
+> file which does not exist is committing the same defect the increments using it
+> spend their time removing. If a repo has no `docs/current/`, that is a choice,
+> not a gap to fill.
 
 ### Step 6: Living Documentation Audit (docs/current/)
 

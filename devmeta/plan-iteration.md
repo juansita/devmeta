@@ -29,11 +29,40 @@ If no `.devmeta/devmeta.md` exists:
 
 **Your primary job is finding feature boundaries that maximize independence.** More independence = more parallelism = faster wall-clock time.
 
-**Workers are smart.** They have CLAUDE.md, the spec, the codebase, and docs/current/. Task descriptions guide — they don't micromanage.
+**Workers are smart.** They have the project's own orientation docs (`CLAUDE.md` / `AGENTS.md`, and `docs/current/` if the repo keeps one), the spec, and the codebase. Task descriptions guide — they don't micromanage.
 
-**This project uses AI-agentic development.** All code is written by agents. Prioritize consistency, mainstream patterns, and well-known libraries. See `docs/current/principles-and-choices.md`.
+**This project uses AI-agentic development.** All code is written by agents. Prioritize consistency, mainstream patterns, and well-known libraries — per the repo's own recorded decisions, wherever it keeps them.
 
 ## Your Task
+
+### Step 0 (all callers): Ground yourself in a CURRENT tree
+
+**Do this before reading a single project file.** A worktree that has never been
+pulled is the normal case, not the exception.
+
+```bash
+git fetch -q
+git rev-list --left-right --count origin/<default-branch>...HEAD
+```
+
+Detect the default branch — `main` and `master` both occur — with
+`git symbolic-ref refs/remotes/origin/HEAD`. Never assume.
+
+**If the left number is non-zero, you are behind. Stop and say so**, with the
+count, before doing anything else. Offer the fast-forward
+(`git merge --ff-only origin/<default>`); do not research, plan or write on a
+stale tree.
+
+This is not hygiene. A discussion document was once researched on a worktree
+**218 commits behind** and described a hosting provider, a public tunnel and a
+model backend that had all been removed months earlier — every load-bearing fact
+in it was wrong, and it read as confident and specific because the stale tree was
+internally consistent. The project's own `AGENTS.md` already carried the rule
+(*fetch before you judge git state*); the commands did not inherit it, and an
+agent following the command faithfully never ran the fetch.
+
+Also confirm you are in the checkout you think you are: the project may run in
+several worktrees, and at least one is usually stale. `git worktree list`.
 
 ### Step 0: Initialize
 
@@ -54,9 +83,20 @@ If no detailed plan exists yet for this iteration, read the overview's rough sco
 
 Also read:
 - `CLAUDE.md` — project orientation
-- `docs/current/principles-and-choices.md` — all architectural decisions
+- the repo's architectural decisions — `docs/current/principles-and-choices.md` **if it exists**; otherwise `AGENTS.md`, `.devmeta/devmeta.md`, or the equivalent this repo actually keeps
 - `.devmeta/lessons-learned.md` — don't repeat past mistakes
 - Any relevant spec or architecture docs referenced in the increment overview
+
+> **`docs/current/` is optional and often absent.** Several DevMeta commands name
+> it as though it always exists; many repos never adopt it and keep the same
+> knowledge in `AGENTS.md`, `CLAUDE.md`, `.devmeta/devmeta.md`, `.devmeta/lessons-learned.md`
+> or a `docs/` tree of their own. **Read what the repo actually has** — check
+> before citing, and never fail or stall because the path is missing.
+>
+> This matters more than it looks: a harness that instructs an agent to read a
+> file which does not exist is committing the same defect the increments using it
+> spend their time removing. If a repo has no `docs/current/`, that is a choice,
+> not a gap to fill.
 
 ### Step 1.5: Scope Check — Does This Iteration Still Make Sense?
 
@@ -222,7 +262,7 @@ Current increment's iterations/iteration-<N>/status.md
 
 ### Step 8: Continue Immediately to Execution
 
-**DO NOT pause, summarize, or ask the user anything.** Planning is not a stopping point — it is a waypoint inside `/devmeta:go`'s autonomous loop.
+**DO NOT pause, summarize, or ask the user anything.** Planning is not a stopping point.
 
 After creating the tick structure, immediately:
 1. Run `tk next` to get the first task.
@@ -231,6 +271,42 @@ After creating the tick structure, immediately:
 Do NOT write "here's the plan, shall I proceed?" messages. Do NOT present the feature independence map as a decision point. Do NOT offer options. The tick structure IS the plan; execution starts now.
 
 If the human needs to intervene, they will interrupt. Your job is to keep moving.
+
+#### Where this command ends depends on who called it
+
+This is the only DevMeta command with no defined stopping point, and that
+ambiguity has cost a real session: three iterations were planned and executed
+back to back, and then execution halted after the fourth *planning* phase for no
+reason other than the absence of a rule. The command is named for planning, its
+Step 8 mandates execution, and it has no `Report:` block — so a direct invocation
+has no turn boundary and one gets invented.
+
+Branch on the caller. You can tell which you are:
+
+- **Called from `/devmeta:go`** — a `go` phase is already running in this
+  conversation. You are a waypoint inside its autonomous loop. Execute every
+  feature in the iteration, then return to `go` **without a report**. Do not stop
+  at the iteration boundary either; `go` decides that.
+
+- **Invoked directly by the user** (`/devmeta:plan-iteration <N>`, nothing else
+  running) — plan, **then execute the whole iteration**, then stop and report with
+  the block below. Planning alone is never a complete answer to this command: the
+  user asked for an iteration, and a tick structure is not one.
+
+  ```markdown
+  ## Iteration <N> — <STATUS>
+
+  **Features:** <N> (<ids>) · **Parallel frontier:** <N>
+  **Shipped:** <one line per feature — what changed, not what was attempted>
+  **Verified:** <the actual command and its result>
+  **Filed not done:** <tick ids + one line each, or "none">
+  **Next:** <the literal next command>
+  **Blocked on you:** <only what the agent cannot do, or "nothing">
+  ```
+
+Either way, **finishing the iteration is the deliverable.** If you find yourself
+writing a summary while a task in this iteration is unstarted and unblocked, that
+is the bug this section exists to prevent — go and do the task.
 
 ## Quality Checklist
 
