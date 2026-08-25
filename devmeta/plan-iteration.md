@@ -69,6 +69,11 @@ Before planning in detail, evaluate the iteration's scope against what actually 
 
 If you restructure, update the current increment's `_overview.md` and note the change in `.devmeta/project-history.md`. Then continue planning.
 
+**Check `## Carried` in this increment's `_overview.md`** and in any previous
+increment's. Work that became unblocked elsewhere is a candidate for scope here —
+but it is a decision to make deliberately at planning time, not a to-do list to
+hand the user.
+
 ### Step 2: Map the Work
 
 Read the iteration plan thoroughly and explore the codebase. Build a complete picture:

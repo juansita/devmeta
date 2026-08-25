@@ -204,6 +204,28 @@ Update the current increment's `iterations/iteration-<N>/status.md`:
 - Added to lessons-learned.md: <what>
 ```
 
+### Step 8.5: The close gate, and work that became unblocked elsewhere
+
+**Prose must agree with ticks.** `status.md` and `current-increment.md` are
+prose; the board is ticks; nothing reconciles them. Before writing **Complete**
+in either, one of these must hold:
+
+1. zero open ticks in the tree you are closing; or
+2. every survivor is `--awaiting approval` **and** named under a literal
+   `## Complete except:` heading, with what it blocks.
+
+Neither holding means it is not complete. Say what is open.
+
+**Never `tk close <epic> --force` when any child is a human task.** It closes
+them all, silently, including the gate you meant to leave standing. Close
+children individually and re-read the board afterwards.
+
+**Work in a PREVIOUS increment that became unblocked during this one** — a
+device arrived, a service came back, a dependency shipped — is recorded under a
+`## Carried` heading in **the owning increment's** `_overview.md`, and stays
+there. It does not join this increment, and it never becomes a list of tick ids
+handed to the user. Note it, and carry on.
+
 ### Step 9: Tag and Prune
 
 **Tag the iteration in Git.** Include the increment suffix so parallel branches with the same iteration number don't collide on the tag:

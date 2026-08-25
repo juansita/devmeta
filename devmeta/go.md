@@ -40,7 +40,23 @@ Then read context files as needed:
 3. Current increment's `_overview.md` — scope, iterations, gap analysis
 4. Current iteration's `status.md` in the increment's `iterations/` directory
 
-**The rule: if `tk next` returns a task, do that task.** Don't interpret markdown files to figure out what to do — the tick structure already encodes the answer.
+**The rule: if `tk next` returns a task IN THE ACTIVE INCREMENT'S TREE, do that
+task.** Don't interpret markdown files to figure out what to do — the tick
+structure already encodes the answer.
+
+**`tk next` is increment-blind, and that is the one place it must not be
+trusted absolutely.** It ranks the whole board: bugs filed mid-session, tasks
+from increments that closed months ago, anything a `--force` left behind. A task
+outside the active increment's tree is **backlog, not next**. Do not start it,
+and do not hand it to the user as work — record it and carry on with the
+increment.
+
+```bash
+tk show <id> --json | python3 -c "import sys,json;d=json.load(sys.stdin);print(d.get('parent'))"
+```
+
+Walk `parent` up. If it does not reach the active increment's iteration epics,
+it is not next.
 
 ## Iteration Rhythm: Execute → Inspect & Adapt
 
@@ -181,10 +197,42 @@ Create 2 tasks: "Run /devmeta:reflect N" and "Plan Iteration N+1: read scope, cr
 
 ### If `tk next` returns nothing: CHECK STATE
 
-- If all current increment iterations are closed → **increment is complete → STOP.**
+- If all current increment iterations are closed → **run the close gate below
+  before writing the word COMPLETE anywhere.**
   - Write a short completion report (what shipped, any outstanding human-in-the-loop items such as live verification).
   - Do NOT bootstrap a new increment. Do NOT ask the user which increment to start next. The current increment was the scope of this `/devmeta:go` invocation; its end is the end of the run.
   - To start the next one, the user will either run `/devmeta:start-increment-spec` (for fresh scope) or update `.devmeta/current-increment.md` to point at a pre-spec'd increment, then re-invoke `/devmeta:go`.
+
+#### The close gate — prose must agree with ticks
+
+`current-increment.md` is prose and the board is ticks. Nothing reconciles them,
+so an increment can read COMPLETE while one of its own deliverables is open. That
+has happened.
+
+Before writing COMPLETE, one of these must hold:
+
+1. **Zero open ticks** in the increment's tree; or
+2. every survivor is `--awaiting approval` **and** every one is named in
+   `current-increment.md` under a literal `## Complete except:` heading, with
+   what it blocks.
+
+If neither holds, the increment is **not** complete. Say what is open and stop.
+
+#### `Active:` is never `none`
+
+An increment stays **active** until its successor is named. There is no inert
+state — writing `Active: none` leaves `/devmeta:go` with nothing to drive and no
+way to say so.
+
+| Real state | `Active:` line | `/devmeta:go` does |
+|---|---|---|
+| work remains | the increment | drives it |
+| only human gates remain | the increment, `Status: BLOCKED ON HUMAN` | prints the gates, stops |
+| genuinely finished | the increment, `Status: COMPLETE` | reports; the user names the next one |
+
+`BLOCKED ON HUMAN` is the state that was missing. Reach for it instead of
+closing a human task to tidy the board, and instead of declaring COMPLETE over
+the top of one.
 - If blocked iterations exist → close the blocking iteration first
 - If something is stuck → investigate and unblock
 - Verify against the current increment's scope — are all items actually closed?
