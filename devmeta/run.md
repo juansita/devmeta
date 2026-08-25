@@ -136,7 +136,7 @@ inside this repo. tk commands, context-log.md, and .devmeta/ files live in the h
 ## Instructions
 
 1. Read CLAUDE.md for project orientation
-2. Read docs/current/principles-and-choices.md for architectural decisions
+2. Read the repo's architectural decisions — `docs/current/principles-and-choices.md` if it exists, otherwise `AGENTS.md` / `.devmeta/devmeta.md`. Do not stall on a missing path.
 3. Read .devmeta/lessons-learned.md — don't repeat known mistakes
 4. Read context-log.md for context from previous features
 5. If .devmeta/devmeta.md exists at project root, read it for test commands and additional rules

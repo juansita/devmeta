@@ -29,13 +29,42 @@ If no `.devmeta/devmeta.md` exists:
 
 **Your primary job is finding feature boundaries that maximize independence.** More independence = more parallelism = faster wall-clock time.
 
-**Workers are smart.** They have CLAUDE.md, the spec, the codebase, and docs/current/. Task descriptions guide — they don't micromanage.
+**Workers are smart.** They have the project's own orientation docs (`CLAUDE.md` / `AGENTS.md`, and `docs/current/` if the repo keeps one), the spec, and the codebase. Task descriptions guide — they don't micromanage.
 
-**This project uses AI-agentic development.** All code is written by agents. Prioritize consistency, mainstream patterns, and well-known libraries. See `docs/current/principles-and-choices.md`.
+**This project uses AI-agentic development.** All code is written by agents. Prioritize consistency, mainstream patterns, and well-known libraries — per the repo's own recorded decisions, wherever it keeps them.
 
 ## Your Task
 
-### Step 0: Initialize
+### Step 0: Ground yourself in a CURRENT tree, then initialize
+
+**Do this before reading a single project file.** A worktree that has never been
+pulled is the normal case, not the exception.
+
+```bash
+git fetch -q
+git rev-list --left-right --count origin/<default-branch>...HEAD
+```
+
+Detect the default branch — `main` and `master` both occur — with
+`git symbolic-ref refs/remotes/origin/HEAD`. Never assume.
+
+**If the left number is non-zero, you are behind. Stop and say so**, with the
+count, before doing anything else. Offer the fast-forward
+(`git merge --ff-only origin/<default>`); do not research, plan or write on a
+stale tree.
+
+This is not hygiene. A discussion document was once researched on a worktree
+**218 commits behind** and described a hosting provider, a public tunnel and a
+model backend that had all been removed months earlier — every load-bearing fact
+in it was wrong, and it read as confident and specific because the stale tree was
+internally consistent. The project's own `AGENTS.md` already carried the rule
+(*fetch before you judge git state*); the commands did not inherit it, and an
+agent following the command faithfully never ran the fetch.
+
+Also confirm you are in the checkout you think you are: the project may run in
+several worktrees, and at least one is usually stale. `git worktree list`.
+
+Only once the tree is current, initialize the tracker:
 
 ```bash
 tk list 2>/dev/null || tk init
@@ -54,9 +83,20 @@ If no detailed plan exists yet for this iteration, read the overview's rough sco
 
 Also read:
 - `CLAUDE.md` — project orientation
-- `docs/current/principles-and-choices.md` — all architectural decisions
+- the repo's architectural decisions — `docs/current/principles-and-choices.md` **if it exists**; otherwise `AGENTS.md`, `.devmeta/devmeta.md`, or the equivalent this repo actually keeps
 - `.devmeta/lessons-learned.md` — don't repeat past mistakes
 - Any relevant spec or architecture docs referenced in the increment overview
+
+> **`docs/current/` is optional and often absent.** Several DevMeta commands name
+> it as though it always exists; many repos never adopt it and keep the same
+> knowledge in `AGENTS.md`, `CLAUDE.md`, `.devmeta/devmeta.md`, `.devmeta/lessons-learned.md`
+> or a `docs/` tree of their own. **Read what the repo actually has** — check
+> before citing, and never fail or stall because the path is missing.
+>
+> This matters more than it looks: a harness that instructs an agent to read a
+> file which does not exist is committing the same defect the increments using it
+> spend their time removing. If a repo has no `docs/current/`, that is a choice,
+> not a gap to fill.
 
 ### Step 1.5: Scope Check — Does This Iteration Still Make Sense?
 
@@ -68,6 +108,11 @@ Before planning in detail, evaluate the iteration's scope against what actually 
 4. **Is the iteration order still right?** If this iteration depends on something from a later iteration, reorder.
 
 If you restructure, update the current increment's `_overview.md` and note the change in `.devmeta/project-history.md`. Then continue planning.
+
+**Check `## Carried` in this increment's `_overview.md`** and in any previous
+increment's. Work that became unblocked elsewhere is a candidate for scope here —
+but it is a decision to make deliberately at planning time, not a to-do list to
+hand the user.
 
 ### Step 2: Map the Work
 
@@ -121,7 +166,62 @@ Each spec contains:
 - Test strategy (surgical commands)
 - Open questions (if any)
 
-### Step 5: Create Shared Context Log
+### Step 4.5: Every user-facing artifact gets a cold read
+
+**If a feature produces something a human other than its author will follow —
+a README, a setup guide, a runbook, an onboarding path, an API's public docs, a
+migration procedure — its LAST task is a cold read, and the feature does not close
+without one.**
+
+A cold read is a subagent given the repository and **the artifact alone**, with no
+conversation history, no spec, and no idea what the author intended. Tell it to
+follow the thing as its intended reader and to be adversarial. Concretely:
+
+```
+You are a stranger to this codebase. You have <the reader's situation> and you
+have been handed exactly one document: <path>.
+
+Read ONLY that file first, cover to cover, before looking at anything else.
+Then report:
+1. Everything you would need before step 1 could succeed — including what the
+   document implies but never names.
+2. Every value you must produce yourself, and whether it says how.
+3. Every step that assumes something already exists on the author's machine —
+   an account, a file, a hostname, a vault, a prior install. Quote the line.
+   This is the most important thing you are looking for.
+4. Every place you would get stuck, in order: an unstated success condition, an
+   output you could not interpret, an ordering problem where step N needs
+   something only step N+2 provides.
+5. Anything factually checkable that is wrong. AFTER your first read you may
+   inspect the repo to verify claims.
+
+Be specific and quote lines. Do not be polite about gaps.
+```
+
+**Why this is a required step and not a nice-to-have.** A setup document written
+in one session opened with "nothing here assumes anything already exists on the
+machine". Its author verified every path in it by hand and closed the task. A cold
+read found it could not get past step 2 — the repository was private and no auth
+step was given — and then failed again at three more steps, and showed that both
+of its stated success conditions were numerically wrong against code in the same
+repo. **Every one of those was invisible from inside the session**, because the
+author had the accounts, the daemon and the history that the document forgot to
+mention.
+
+Rules that make it work:
+
+- **Context-free, or it is worthless.** A subagent that inherits the conversation
+  inherits the assumptions. Do not summarise the work for it.
+- **The finding list is the task's output.** Record it in the feature's
+  `context-log.md`, then fix. If findings invalidate a closed task, use the
+  reopen path in Step 8.
+- **Verify before acting on it.** A cold read is a strong signal, not an oracle —
+  check each claim yourself. In practice most will hold, and the ones that do not
+  are still telling you the document is ambiguous.
+- **Do not use it for code.** Code has tests. This is for prose whose only test is
+  a reader.
+
+### Step 5: Create Shared Context Log — and a task that fills it
 
 ```
 .devmeta/projects/YYYY-MM-DD-<feature-name>/context-log.md
@@ -133,8 +233,48 @@ Each spec contains:
 > Feature workers: read this before starting. Append your section when done.
 > Captures patterns established, gotchas discovered, and decisions made.
 
+> **An empty context-log is a finding.** If this file still holds only these
+> lines when the feature closes, the feature did not record what it learned and
+> the next reader starts from nothing.
+
 ---
 ```
+
+**"Append your section when done" is an instruction, and instructions do not
+gate.** Two features in one increment closed with their context-log holding only
+the template header, while three others carried the whole iteration's knowledge —
+and the re-grounding pass afterwards could not promote what was never written
+down. Nothing failed, because nothing checked.
+
+So make it a **task**, the last one in every feature, with acceptance criteria
+like any other:
+
+```bash
+tk create "Record what this feature learned" \
+  --parent <epic-id> \
+  -d "## Objective
+context-log.md holds what the next person needs and would otherwise re-derive.
+
+## Scope
+**Files:** \`.devmeta/projects/<date>-<name>/context-log.md\`
+
+## Implementation
+Write what is NOT obvious from the diff:
+1. What you expected to find and did not — wrong assumptions cost the most time.
+2. Numbers, names and paths you had to re-check, and what they actually are.
+3. Decisions you made that the spec left open, and the evidence for each.
+4. Anything you found and deliberately did NOT fix, with the tick id.
+5. Traps for the next person in this area.
+
+Not a diff summary. Git already has the diff." \
+  --acceptance "context-log.md contains more than the template header, and names at least one thing a reader could not get from the diff"
+```
+
+Where a feature has a mapping or inventory step (audit tables, site-to-counterpart
+maps, per-file verdicts), make **that** its first task and have it write into the
+same file. Then the log is populated before the work starts rather than
+reconstructed from memory after it — which is the difference between a record and
+a recollection.
 
 ### Step 6: Create Features and Tasks in tk
 
@@ -217,7 +357,7 @@ Current increment's iterations/iteration-<N>/status.md
 
 ### Step 8: Continue Immediately to Execution
 
-**DO NOT pause, summarize, or ask the user anything.** Planning is not a stopping point — it is a waypoint inside `/devmeta:go`'s autonomous loop.
+**DO NOT pause, summarize, or ask the user anything.** Planning is not a stopping point.
 
 After creating the tick structure, immediately:
 1. Run `tk next` to get the first task.
@@ -227,15 +367,107 @@ Do NOT write "here's the plan, shall I proceed?" messages. Do NOT present the fe
 
 If the human needs to intervene, they will interrupt. Your job is to keep moving.
 
+#### When verification invalidates something already closed
+
+Step 8 forbids pausing or asking. That is right for ordinary progress and wrong
+for one case, which has no other rule and therefore no defined move: **a
+verification step proves an earlier, already-closed task was not done.**
+
+It happens for a specific reason. A verify task is often the first time anyone
+looks at the work from outside — a cold read, a probe, an adversarial pass — and
+outside is where the author's assumptions stop holding. In one session a setup
+document passed every path check its author wrote, was hand-verified, closed, and
+was then shown by a context-free reader to fail at four separate steps and to
+state two success conditions that were numerically wrong. The completion claim had
+already been made.
+
+When that happens:
+
+1. **Reopen the task.** `tk update <id> --status open`. A task whose deliverable
+   is wrong is not done, however green its own acceptance criterion was.
+2. **Write the finding into the feature's `context-log.md` before fixing
+   anything** — what was claimed, what is true, and how the gap survived. The
+   mechanism that let it through is worth more than the fix.
+3. **Fix what belongs to this iteration; file the rest.** Findings routinely
+   spill into code the iteration does not own. Create ticks for those and name
+   them in the iteration `status.md` under a handoff heading. Do not widen the
+   iteration to swallow them, and do not drop them.
+4. **Do not close the iteration** while a reopened task is open — and correct any
+   status file that already called it complete, in the same edit.
+5. **Only then continue.** Still do not ask the user; this is a recorded
+   correction, not a decision.
+
+The failure mode this prevents is the quiet one: a finding arrives after the
+summary is written, and the cheapest response is to treat it as the next
+iteration's problem. It is this iteration's problem, and the record should say
+the claim was withdrawn rather than silently superseded.
+
+#### Where this command ends depends on who called it
+
+This is the only DevMeta command with no defined stopping point, and that
+ambiguity has cost a real session: three iterations were planned and executed
+back to back, and then execution halted after the fourth *planning* phase for no
+reason other than the absence of a rule. The command is named for planning, its
+Step 8 mandates execution, and it has no `Report:` block — so a direct invocation
+has no turn boundary and one gets invented.
+
+Branch on the caller. You can tell which you are:
+
+- **Called from `/devmeta:go`** — a `go` phase is already running in this
+  conversation. You are a waypoint inside its autonomous loop. Execute every
+  feature in the iteration, then return to `go` **without a report**. Do not stop
+  at the iteration boundary either; `go` decides that.
+
+- **Invoked directly by the user** (`/devmeta:plan-iteration <N>`, nothing else
+  running) — plan, **then execute the whole iteration**, then stop and report with
+  the block below. Planning alone is never a complete answer to this command: the
+  user asked for an iteration, and a tick structure is not one.
+
+  ```markdown
+  ## Iteration <N> — <STATUS>
+
+  **Features:** <N> (<ids>) · **Parallel frontier:** <N>
+  **Shipped:** <one line per feature — what changed, not what was attempted>
+  **Verified:** <the actual command and its result>
+  **Filed not done:** <tick ids + one line each, or "none">
+  **Next:** <the literal next command>
+  **Blocked on you:** <only what the agent cannot do, or "nothing">
+  ```
+
+Either way, **finishing the iteration is the deliverable.** If you find yourself
+writing a summary while a task in this iteration is unstarted and unblocked, that
+is the bug this section exists to prevent — go and do the task.
+
 ## Quality Checklist
 
-- [ ] No file modified by two independent features
+- [ ] No file modified by two independent features — **or, if one is, the plan names the order and says why merging the features would be worse** (see below)
 - [ ] Multi-repo mode: every feature names its target repo; cross-repo features only when atomic
 - [ ] Shared code in foundation feature
 - [ ] Each feature fits in ~60-70% of context
 - [ ] Tasks ordered and building on each other within feature
 - [ ] Every task has surgical test commands
 - [ ] Cross-feature deps are minimal
+- [ ] **Every feature producing a user-facing document ends with a cold-read task** (Step 4.5)
+- [ ] **Every feature's LAST task is "append to context-log.md", with acceptance criteria** (Step 5)
 - [ ] context-log.md created per feature
 - [ ] iteration status.md created
 - [ ] Parallel frontier is as wide as possible
+
+### The shared-file rule has one exception, and it must be stated
+
+"No file modified by two independent features" exists so two subagents cannot
+collide. When two features legitimately touch **disjoint regions** of one file —
+different functions, different sections, one appending and one editing elsewhere —
+merging them into a single feature is the worse outcome: it puts two unrelated
+jobs in one context and serialises work that could run in parallel.
+
+So the exception is allowed when **all three** hold, and the plan says so
+explicitly:
+
+1. the regions are genuinely disjoint, named in the work-to-file matrix;
+2. the plan states **which feature edits first**, and the second feature's task
+   description says to rebase onto it rather than revert it;
+3. the reason for not merging is written down.
+
+If you cannot state all three, merge the features. An ordering that works by luck
+is the thing this rule was protecting against.

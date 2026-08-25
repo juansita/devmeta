@@ -52,7 +52,7 @@ Read every source of learnings from this iteration:
    Read `.devmeta/lessons-learned.md`
 
 5. **Current troubleshooting.md** (if exists):
-   Read `docs/current/troubleshooting.md`
+   Read `docs/current/troubleshooting.md` if the repo keeps one
 
 ### Step 2: Categorize Learnings
 
@@ -80,7 +80,7 @@ This is the most important step. Read the actual code that was written during th
 
 2. **For each significant file**, ask:
    - Would an experienced developer recognize this as standard, idiomatic code?
-   - Does it follow the patterns in `docs/current/principles-and-choices.md`?
+   - Does it follow the repo's recorded patterns (`docs/current/principles-and-choices.md` if kept, else `AGENTS.md` / `.devmeta/devmeta.md`)?
    - Is there unnecessary complexity that suggests an agent struggled and patched rather than solving properly?
 
 3. **Signs of drift to look for:**
@@ -151,6 +151,17 @@ Look for patterns across the iteration:
 - **A principle was violated repeatedly?** → Either the principle is wrong or it's not visible enough.
 - **Workarounds accumulated?** → Code quality drift. Create cleanup tasks.
 
+> **`docs/current/` is optional and often absent.** Several DevMeta commands name
+> it as though it always exists; many repos never adopt it and keep the same
+> knowledge in `AGENTS.md`, `CLAUDE.md`, `.devmeta/devmeta.md`, `.devmeta/lessons-learned.md`
+> or a `docs/` tree of their own. **Read what the repo actually has** — check
+> before citing, and never fail or stall because the path is missing.
+>
+> This matters more than it looks: a harness that instructs an agent to read a
+> file which does not exist is committing the same defect the increments using it
+> spend their time removing. If a repo has no `docs/current/`, that is a choice,
+> not a gap to fill.
+
 ### Step 6: Living Documentation Audit (docs/current/)
 
 Before applying individual updates, step back and assess `docs/current/` as a whole.
@@ -203,6 +214,28 @@ Update the current increment's `iterations/iteration-<N>/status.md`:
 - Updated principles-and-choices.md: <what>
 - Added to lessons-learned.md: <what>
 ```
+
+### Step 8.5: The close gate, and work that became unblocked elsewhere
+
+**Prose must agree with ticks.** `status.md` and `current-increment.md` are
+prose; the board is ticks; nothing reconciles them. Before writing **Complete**
+in either, one of these must hold:
+
+1. zero open ticks in the tree you are closing; or
+2. every survivor is `--awaiting approval` **and** named under a literal
+   `## Complete except:` heading, with what it blocks.
+
+Neither holding means it is not complete. Say what is open.
+
+**Never `tk close <epic> --force` when any child is a human task.** It closes
+them all, silently, including the gate you meant to leave standing. Close
+children individually and re-read the board afterwards.
+
+**Work in a PREVIOUS increment that became unblocked during this one** — a
+device arrived, a service came back, a dependency shipped — is recorded under a
+`## Carried` heading in **the owning increment's** `_overview.md`, and stays
+there. It does not join this increment, and it never becomes a list of tick ids
+handed to the user. Note it, and carry on.
 
 ### Step 9: Tag and Prune
 

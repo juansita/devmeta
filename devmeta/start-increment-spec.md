@@ -24,9 +24,66 @@ If no `.devmeta/devmeta.md` exists:
 
 Create a new increment directory with a properly structured `_overview.md` and begin defining scope interactively.
 
+### Step 0 (all callers): Ground yourself in a CURRENT tree
+
+**Do this before reading a single project file.** A worktree that has never been
+pulled is the normal case, not the exception.
+
+```bash
+git fetch -q
+git rev-list --left-right --count origin/<default-branch>...HEAD
+```
+
+Detect the default branch — `main` and `master` both occur — with
+`git symbolic-ref refs/remotes/origin/HEAD`. Never assume.
+
+**If the left number is non-zero, you are behind. Stop and say so**, with the
+count, before doing anything else. Offer the fast-forward
+(`git merge --ff-only origin/<default>`); do not research, plan or write on a
+stale tree.
+
+This is not hygiene. A discussion document was once researched on a worktree
+**218 commits behind** and described a hosting provider, a public tunnel and a
+model backend that had all been removed months earlier — every load-bearing fact
+in it was wrong, and it read as confident and specific because the stale tree was
+internally consistent. The project's own `AGENTS.md` already carried the rule
+(*fetch before you judge git state*); the commands did not inherit it, and an
+agent following the command faithfully never ran the fetch.
+
+Also confirm you are in the checkout you think you are: the project may run in
+several worktrees, and at least one is usually stale. `git worktree list`.
+
 ### Step 1: Determine Increment Number and Suffix
 
-Read `.devmeta/current-increment.md`. Parse the active increment line (`**Active:** Increment <num>[-<suffix>] — ...`) and extract the **leading integer**, ignoring any `-<suffix>` part. Add 1 to get the new increment number, then **zero-pad it to two digits** (e.g. `07`, `76`) so increment directories sort lexically — call it `<NN>` for the rest of this command.
+**The number comes from the directories, not from the active line.**
+
+```bash
+ls -d .devmeta/increments/increment-* 2>/dev/null \
+  | sed -E 's|.*/increment-([0-9]+).*|\1|' | sort -n | tail -1
+```
+
+Take the highest existing increment integer, add 1, and **zero-pad to two digits**
+(e.g. `07`, `76`) so increment directories sort lexically — call it `<NN>` for the
+rest of this command. If no increments exist, start at `01`.
+
+> **This used to read "parse the active increment line and add 1", and that is
+> wrong whenever the active increment is not the newest one.** It happened: the
+> active increment was `01-ora` — reactivated because a human gate finally
+> unblocked — while `06-rgt` was the highest on disk. The rule produced `02`,
+> which already existed. Reactivating an older increment is a normal and correct
+> thing to do, so the numbering must not depend on which one is active.
+
+**Check whether the number you picked is already spoken for in prose.** A
+completed report or an overview often reserves the *next* integer for planned
+work (`"deferred to increment 07"`). Grep for it:
+
+```bash
+grep -rn "increment $((10#$NN))\|increment-$NN" docs/ .devmeta/ AGENTS.md 2>/dev/null
+```
+
+If something already claims it, you may still take the number — but say so in the
+new `_overview.md`, and renumber the other claim in the same increment. Two things
+called increment 07 is worse than either being called 08.
 
 Generate a 3-letter random suffix `<XXX>` from `[a-z]` (e.g. `abc`, `xkl`, `qmt`). The suffix exists so parallel branches/worktrees that both pick the same `<NN>` land in different directories and don't merge-conflict on the increment subtree.
 
@@ -148,6 +205,18 @@ If `$ARGUMENTS` provides an increment title, use it. Otherwise, leave `<Title>` 
 Update `.devmeta/current-increment.md` to point to the new increment:
 - Set the new increment as active with status NOT STARTED, using the **suffixed identifier** in the line: `**Active:** Increment <NN>-<XXX> — <Title>: ...`
 - Keep the previous increment reference with its final status (its identifier stays whatever it was — historic ones may have no suffix)
+
+**If the increment you are displacing is not COMPLETE, say so in the same file and
+do not bury it.** An increment can be active because it is blocked on a human —
+seven hardware checks on a phone, a disk that has to be plugged in — and making a
+new one active is not a claim that the old one finished. Write, explicitly:
+
+> **Increment <old> is still open and is NOT superseded** — <what is outstanding>.
+> It carries its own state under `## Carried` in its `_overview.md`. Neither
+> increment gates the other; picking it back up means making it active again.
+
+Otherwise the only record that work remains is a status line the next reader
+scrolls past.
 
 ### Step 5: Interactive Scope Definition
 
