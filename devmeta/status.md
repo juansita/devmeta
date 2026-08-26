@@ -58,12 +58,12 @@ For each active iteration:
 - Iterations complete: X / N
 - Current iteration: <N> — <progress summary>
 
-### Blocked Items (if any)
-| Item | Blocked By | Notes |
-|------|-----------|-------|
-| <feature/task> | <reason> | <from tk notes> |
-```
+### Standing conditions (if any)
 
+Facts about the world the work has to live with — a device nobody has, an account
+with no credentials, a third party that changed. **Never ticks**: a ticket assigned
+to the owner is not work anybody is doing. Report them here and in the orientation
+docs, with the confidence the code has without them.
 ### Step 4: Suggest Next Action
 
 Based on current state, recommend ONE of:

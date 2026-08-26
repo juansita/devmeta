@@ -219,17 +219,19 @@ Update the current increment's `iterations/iteration-<N>/status.md`:
 
 **Prose must agree with ticks.** `status.md` and `current-increment.md` are
 prose; the board is ticks; nothing reconciles them. Before writing **Complete**
-in either, one of these must hold:
+in either: **zero open ticks in the tree you are closing.**
 
-1. zero open ticks in the tree you are closing; or
-2. every survivor is `--awaiting approval` **and** named under a literal
-   `## Complete except:` heading, with what it blocks.
+There used to be a second way to pass — every survivor `--awaiting approval` and
+named under `## Complete except:`. It is gone, along with the thing it was for.
+**A ticket is never addressed to the owner** (`plan-iteration.md`), so every open
+tick is now work an agent can do, and an escape hatch that only ever admitted
+tickets nobody could work is not worth keeping.
 
-Neither holding means it is not complete. Say what is open.
+Not holding means it is not complete. Say what is open, and then close it.
 
-**Never `tk close <epic> --force` when any child is a human task.** It closes
-them all, silently, including the gate you meant to leave standing. Close
-children individually and re-read the board afterwards.
+**`tk close <epic> --force` closes every child silently.** Prefer closing children
+individually and re-reading the board — a count you did not look at is a count you
+do not have.
 
 **Work in a PREVIOUS increment that became unblocked during this one** — a
 device arrived, a service came back, a dependency shipped — is recorded under a
