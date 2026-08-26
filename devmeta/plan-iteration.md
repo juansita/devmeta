@@ -319,6 +319,46 @@ Do NOT close until tests pass." \
   --acceptance "<test command> passes"
 ```
 
+**A subagent never closes its own ticks.** It reports; the orchestrator verifies
+and closes. A worker closing the tick it just worked is the tracker recording a
+*claim*, and the whole point of an acceptance criterion is that someone other
+than the author runs it. Say so in the subagent's prompt, and close from here —
+`tk close <id>`, then `tk list` to see the `✓`.
+
+This is the same rule as *"Verify the world before believing the tracker"* in
+`.devmeta/devmeta.md`, applied one level up: a closed tick is a claim, and a
+claim by the party being graded is the weakest kind.
+
+**Beyond the features, an iteration owes six more ticks — create them here.**
+
+These used to be specified in `go.md` Phase 2, which meant that when `/devmeta:go`
+called this command it supplied them and when a **user** called this command
+directly **nobody did**. Measured on increment 08, planned by four direct
+invocations: 51 such ticks across the increments run under `go`, and **zero**
+across this one — no PR, no merge, no I&A cycle, no `base-branch` file. The
+obligations belong to the command that does the planning, so they are here now
+and `go.md` points at this list rather than restating it.
+
+- **A "Re-ground after Feature X" task, last in every feature.**
+- **A "Create PR for iteration N" task** (parent: iteration).
+- **A "Merge PR and return to base branch" task** (parent: iteration).
+- **A "Commit metadata to base branch" task** (parent: iteration) — commits the
+  `.tick/` and `.devmeta/` files orchestration modified.
+- **A "Kick off I&A Cycle NR" task, last in the iteration** (parent: iteration).
+- **The I&A cycle iteration itself**: `Iteration NR: Inspect & Adapt on
+  Iteration N` (epic, blocked by iteration N), holding two tasks — `Run
+  /devmeta:reflect N`, and `Plan Iteration N+1: read scope, create feature tick
+  structure, begin first task`. The first invokes the full I&A skill; the second
+  is **concrete work, not a handoff**, which is what stops the loop stalling at
+  the boundary.
+
+**The base branch.** The PR and merge tasks need one, and `go.md` Phase 0.5
+writes it to `<increment-dir>/base-branch`. A direct invocation has not run that
+phase, so **check for the file and write it if it is missing** — do not assume
+`main`. `AGENTS.md` in this project says `main` ships via pull request, and an
+iteration that pushes straight to a long-lived branch has skipped a gate the
+project believes it has.
+
 **Cross-feature dependencies (feature level only):**
 ```bash
 tk block <epic-B-first-task-id> <epic-A-last-task-id>
@@ -383,8 +423,14 @@ already been made.
 
 When that happens:
 
-1. **Reopen the task.** `tk update <id> --status open`. A task whose deliverable
-   is wrong is not done, however green its own acceptance criterion was.
+1. **Reopen the task.** `tk reopen <id>`. A task whose deliverable is wrong is
+   not done, however green its own acceptance criterion was.
+
+   > `tk update` has **no `--status` flag**, and passing one is accepted
+   > silently — exit 0, no output, nothing changed. This command said
+   > `tk update <id> --status open` until 2026-08-26 and would have quietly
+   > done nothing. `tk close <id>` closes; `tk reopen <id>` reopens; the glyph
+   > in `tk list` is the only proof either happened.
 2. **Write the finding into the feature's `context-log.md` before fixing
    anything** — what was claimed, what is true, and how the gap survived. The
    mechanism that let it through is worth more than the fix.
@@ -419,9 +465,23 @@ Branch on the caller. You can tell which you are:
   at the iteration boundary either; `go` decides that.
 
 - **Invoked directly by the user** (`/devmeta:plan-iteration <N>`, nothing else
-  running) — plan, **then execute the whole iteration**, then stop and report with
-  the block below. Planning alone is never a complete answer to this command: the
-  user asked for an iteration, and a tick structure is not one.
+  running) — plan, **execute the whole iteration, then run its I&A cycle**, and
+  only then stop and report with the block below.
+
+  Planning alone is never a complete answer to this command: the user asked for
+  an iteration, and a tick structure is not one. **Nor is working code.**
+  `reflect.md` states that the I&A cycle is *"a waypoint inside the loop, not a
+  stopping point"* and forbids any phrasing implying the user drives the next
+  step — and that is true whichever way this command was called. A direct
+  invocation that stops before the I&A cycle stops one step short of the
+  harness's own definition of done, and hands the user a slash command the rest
+  of the harness says they should never have to type.
+
+  So: `tk next` through the I&A cycle iteration you created in Step 6, exactly as
+  `go` would. **The one place to stop is the increment boundary** — when the
+  increment's `_overview.md` scope is fully delivered and there is no Iteration
+  N+1, `reflect.md` says that IS a stopping point. Stop there, and do not
+  bootstrap the next increment.
 
   ```markdown
   ## Iteration <N> — <STATUS>
@@ -430,9 +490,16 @@ Branch on the caller. You can tell which you are:
   **Shipped:** <one line per feature — what changed, not what was attempted>
   **Verified:** <the actual command and its result>
   **Filed not done:** <tick ids + one line each, or "none">
-  **Next:** <the literal next command>
   **Blocked on you:** <only what the agent cannot do, or "nothing">
   ```
+
+  **There is deliberately no `Next:` field.** It used to be here, reading "the
+  literal next command", and it structurally demanded that a devmeta command be
+  handed back to the user — which is the one thing this harness exists to avoid.
+  It is what produced a report ending `Next: /devmeta:reflect` after an iteration
+  whose I&A cycle this command should have run itself. `Blocked on you:` already
+  carries the only thing a user should see, and the honest answer there is
+  usually "nothing".
 
 Either way, **finishing the iteration is the deliverable.** If you find yourself
 writing a summary while a task in this iteration is unstarted and unblocked, that
