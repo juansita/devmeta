@@ -209,14 +209,20 @@ Create 2 tasks: "Run /devmeta:reflect N" and "Plan Iteration N+1: read scope, cr
 so an increment can read COMPLETE while one of its own deliverables is open. That
 has happened.
 
-Before writing COMPLETE, one of these must hold:
+Before writing COMPLETE: **zero open ticks in the increment's tree.**
 
-1. **Zero open ticks** in the increment's tree; or
-2. every survivor is `--awaiting approval` **and** every one is named in
-   `current-increment.md` under a literal `## Complete except:` heading, with
-   what it blocks.
+That is the whole gate now. It used to have a second limb — *or every survivor is
+`--awaiting approval` and named under `## Complete except:`* — and that limb was
+the leak. It existed for tickets addressed to the owner, and once an increment
+could close over the top of them, they multiplied: one project carried seven for
+months and its board could never say COMPLETE and mean it.
 
-If neither holds, the increment is **not** complete. Say what is open and stop.
+**A ticket is never addressed to the owner** — see the hard rule in
+`plan-iteration.md`. With none of those on the board, every open tick is work an
+agent can do, and "zero open" is a gate an agent can actually pass.
+
+If it does not hold, the increment is **not** complete. Say what is open and keep
+working.
 
 #### `Active:` is never `none`
 
@@ -227,12 +233,13 @@ way to say so.
 | Real state | `Active:` line | `/devmeta:go` does |
 |---|---|---|
 | work remains | the increment | drives it |
-| only human gates remain | the increment, `Status: BLOCKED ON HUMAN` | prints the gates, stops |
 | genuinely finished | the increment, `Status: COMPLETE` | reports; the user names the next one |
 
-`BLOCKED ON HUMAN` is the state that was missing. Reach for it instead of
-closing a human task to tidy the board, and instead of declaring COMPLETE over
-the top of one.
+There is no `BLOCKED ON HUMAN` row. There was, and it was a mistake: it made
+"waiting on the owner" a state the loop could park in, and a loop that can park
+will. Something you genuinely cannot exercise gets its confidence written down
+and the tick closed, not a state of its own.
+
 - If blocked iterations exist → close the blocking iteration first
 - If something is stuck → investigate and unblock
 - Verify against the current increment's scope — are all items actually closed?

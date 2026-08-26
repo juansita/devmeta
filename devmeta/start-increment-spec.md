@@ -187,9 +187,15 @@ Write `.devmeta/increments/increment-<NN>-<XXX>/_overview.md` using this templat
 
 ---
 
-## Blocked Items
+## Standing conditions
 
-- <Item>: <What's needed and when>
+<!-- Facts about the world this increment has to live with — no off-machine
+     backup, a third party that started requiring a key, a device nobody has.
+     FACTS, not tasks: they belong here and in the orientation docs, and they
+     NEVER become ticks. A ticket assigned to the owner is not work anybody is
+     doing; see the hard rule in plan-iteration.md. -->
+
+- <Condition>: <what it means for this increment, and what was done anyway>
 
 ---
 
@@ -229,7 +235,11 @@ Begin an interactive dialogue to flesh out the overview. Ask about:
 5. **Repos (multi-repo mode only):** Which repos does this increment modify? Which does it only need to understand? Propose candidates from the project docs/dependency map, confirm with the user, and fill the `## Repos` table. Then check availability: every listed repo must be cloned locally and level with its origin default branch (`main` vs `master` varies per repo — detect, never assume) — if not, ask the user to fix that before finalizing.
 6. **Iterations:** How should the work be split? (Aim for 2-5 iterations, each 1-3 days of agent work)
 7. **Dependencies:** What must exist before this increment can start?
-8. **Blocked items:** Anything that needs human action (API keys, accounts, etc.)?
+8. **Standing conditions:** anything about the world this increment has to work
+   around — a missing account, an unattachable device, a third-party change. Record
+   it under `## Standing conditions` and in the orientation docs. **Do not turn it
+   into a tick**, and do not plan an iteration around waiting for it: build what can
+   be built, state the confidence, and let the owner decide at review.
 9. **Exit criteria:** How do we know the increment is done?
 
 Update the `_overview.md` with each answer.

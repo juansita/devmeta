@@ -276,6 +276,62 @@ same file. Then the log is populated before the work starts rather than
 reconstructed from memory after it — which is the difference between a record and
 a recollection.
 
+## A ticket is never addressed to the owner (HARD RULE)
+
+**Never create a tick whose completion depends on the owner doing something.** Not
+`HUMAN: exercise the microphone on the iPhone`, not `Verify on the phone: …`, not
+`HUMAN: attach the disk`, not "confirm X works", not "check this on real hardware".
+No `--awaiting approval`, no `--awaiting escalation`, no `BLOCKED ON HUMAN`.
+
+**This harness runs on trust.** The owner verifies at PR review, on their own
+schedule, with the running system in front of them. That is the only verification
+step there is, and it is theirs.
+
+### Why the old shape failed
+
+One project ran an entire iteration made of them — seven tickets, all reading
+`HUMAN:` or `Verify on the phone:`. They stayed open for **months** and held their
+increment "active" long after its code had shipped, because **a ticket assigned to
+the owner is not work anybody is doing.** It is a note wearing a ticket's clothes.
+It cannot be worked, it cannot be closed, and it makes every board it sits on lie
+about what is left.
+
+Worse, it corrupts the thing it was meant to protect: an agent that can write
+"HUMAN: verify this" has an escape hatch from finishing, and a board that always
+has open human tickets can never say COMPLETE — so COMPLETE stops meaning anything.
+
+### What to do instead
+
+When you reach something you genuinely cannot exercise — a device in a pocket, an
+account you have no credentials for, a physical disk:
+
+1. **Do the part you can**, all of it. Exercise the same code path every way that
+   is available from here: the unit level, the seam, the live service, a fixture
+   that stands in for the device.
+2. **State your confidence, and what it rests on.** `High — whisper transcribes the
+   fixture correctly through the live seam, checked on content rather than on a
+   200.` Not "should work". Not "untested". A claim with its evidence attached.
+3. **Name what a real device would add**, specifically. `That iOS Safari's
+   MediaRecorder produces a container whisper accepts.` That sentence is the whole
+   value of the thing you were about to ticket.
+4. **Write it in the repo**, in a document the owner reads — `docs/UNVERIFIED.md`
+   is a good name — and in the PR body. Not on the board.
+5. **Close the tick and move on.** The work is done. What remains is the owner's
+   review, and their review is not your ticket.
+
+### Facts are not tasks
+
+"There is no off-machine backup because no disk is attached" is a **fact about the
+system**. Record it in the orientation docs, where it stays true and stays read.
+Putting it on a board turns a standing condition into a chore nobody accepted.
+
+### What still stops you
+
+Nothing here weakens the three real stopping conditions — a judgement only the
+owner can make, something you cannot do, and work genuinely finished. **Say those
+in your handoff, in prose, once.** The distinction is: a sentence to a person is
+communication, and a ticket to a person is a queue with no worker.
+
 ### Step 6: Create Features and Tasks in tk
 
 **Feature format** (multi-repo mode: include the `## Repo` line; omit it otherwise):
