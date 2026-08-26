@@ -176,20 +176,20 @@ Read the task description with `tk show <id>`, do the work, close the task with 
 ### If `tk next` returns an execution iteration (no children): PLAN IT
 
 1. Run `/devmeta:plan-iteration N`
-2. Planning MUST create the tick structure:
-   - Feature ticks for each feature (parent: iteration)
-   - Task ticks for each task within features (parent: feature)
-   - **A "Re-ground after Feature X" task as the last task in every feature**
-   - **A "Create PR for iteration N" task (parent: iteration)**
-   - **A "Merge PR and return to base branch" task (parent: iteration)**
-   - **A "Commit metadata to base branch" task (parent: iteration)** — commits `.tick/` and `.devmeta/` files that were modified during orchestration
-   - **A "Kick off I&A Cycle NR" task as the last task (parent: iteration)**
-3. Also create the I&A cycle iteration tick:
-   - `Iteration NR: Inspect & Adapt on Iteration N` (epic, blocked by iteration N)
-   - 2 tasks: "Run /devmeta:reflect N" and "Plan Iteration N+1: read scope, create feature tick structure, begin first task"
-   - The first task invokes the full I&A cycle skill; the second is concrete work, not a handoff
-4. Set dependencies between features (waves: parallel where independent, sequential where dependent)
-5. Then immediately start executing (`tk next` → do the first task)
+2. **`plan-iteration` owns the whole tick structure**, features and the six ticks
+   an iteration owes besides them — the re-ground tasks, the PR, the merge, the
+   metadata commit, the I&A kick-off, and the I&A cycle iteration itself. The list
+   lives in that command, under Step 6.
+
+   > It used to live **here**, and that was the bug. When `go` called
+   > `plan-iteration` the list was supplied; when a user called `plan-iteration`
+   > **directly** nobody supplied it, because that command never told anyone to
+   > read this file. Increment 08 was planned by four direct invocations and
+   > produced **zero** PR, merge, re-ground or I&A ticks against 51 in the
+   > increments run under `go`. Restating the list here would recreate the drift
+   > in the other direction; point at it instead.
+3. Set dependencies between features (waves: parallel where independent, sequential where dependent)
+4. Then immediately start executing (`tk next` → do the first task)
 
 ### If `tk next` returns an I&A cycle iteration (no children): CREATE ITS TASKS
 
