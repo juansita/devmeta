@@ -287,6 +287,21 @@ Write in narrative form, not bullet points.
 4. **Update the tick structure to match.**
 5. Record significant plan changes in `.devmeta/project-history.md`.
 
+### Step 11.5: Fold the ledger forward
+
+Read `<increment-dir>/decisions.md`. For each entry made during this iteration:
+
+- **Settled by what shipped?** Mark it settled, in place. Do not delete it — the
+  reasoning is the value and the entry is what the final report reads.
+- **Still standing?** Leave it. It belongs in the end-of-run report's
+  *Assumptions taken*.
+- **Turned out wrong?** Say so in the entry and fix the code now — Step 4's rule
+  applies: gaps get fixed, not deferred.
+
+An I&A cycle that adds nothing to the ledger and settles nothing in it did not
+look. This is also the moment to promote an entry that has become a *rule* rather
+than a decision — those belong in `lessons-learned.md`.
+
 ### Step 12: Report
 
 ```markdown

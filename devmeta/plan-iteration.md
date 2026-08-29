@@ -455,6 +455,12 @@ Current increment's iterations/iteration-<N>/status.md
 
 **DO NOT pause, summarize, or ask the user anything.** Planning is not a stopping point.
 
+Planning is where most judgement calls happen — which reading of a requirement,
+which of two shapes, what to defer. **Each one gets a line in
+`<increment-dir>/decisions.md`** (`go.md` → *The ledger*) and none of them gets a
+question. The ledger is what the end-of-run report is assembled from; a decision
+that only ever existed in context is gone by the next iteration.
+
 After creating the tick structure, immediately:
 1. Run `tk next` to get the first task.
 2. Begin executing it.
